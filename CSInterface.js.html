@@ -1034,7 +1034,7 @@ CSInterface.prototype.updatePanelMenuItem = function(menuItemLabel, enabled, che
  * @param {function} callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
  *
  * @example An example menu XML:
- * &lt;Menu>
+ * '&lt;Menu>
  *   &lt;MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checkable="true" Checked="false" Icon="./image/small_16X16.png"/>
  *   &lt;MenuItem Id="menuItemId2" Label="TestExample2">
  *     &lt;MenuItem Id="menuItemId2-1" Label="TestExample2-1" >
@@ -1044,7 +1044,7 @@ CSInterface.prototype.updatePanelMenuItem = function(menuItemLabel, enabled, che
  *   &lt;/MenuItem>
  *   &lt;MenuItem Label="---" />
  *   &lt;MenuItem Id="menuItemId3" Label="TestExample3" Enabled="false" Checkable="true" Checked="false"/>
- * &lt;/Menu>
+ * &lt;/Menu>'
  */
 CSInterface.prototype.setContextMenu = function(menu, callback)
 {
@@ -1067,10 +1067,10 @@ CSInterface.prototype.setContextMenu = function(menu, callback)
  *    &lt;li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.&lt;/li>
  *    &lt;li>checkable attribute takes precedence over Checked attribute.&lt;/li>
  *    &lt;li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.&lt;/li>
- *    &lt;li>The Chrome extension contextMenus API was taken as a reference.&lt;/li>
  *    &lt;li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.&lt;/li>
  * &lt;/ul>
- *   {@link https://developer.chrome.com/extensions/contextMenus}
+ * 
+ * The Chrome extension {@link https://developer.chrome.com/extensions/contextMenus|contextMenus API} was taken as a reference.
  *
  * @param menu      A JSON string which describes menu structure.
  * @param {function} callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
