@@ -117,10 +117,10 @@ EvalScript_ErrMessage = "EvalScript error.";
  * components. The major, minor and micro values are numeric; the special
  * value can be any string.
  *
- * @param major   The major version component, a positive integer up to nine digits long.
- * @param minor   The minor version component, a positive integer up to nine digits long.
- * @param micro   The micro version component, a positive integer up to nine digits long.
- * @param special The special version component, an arbitrary string.
+ * @param {number} major The major version component, a positive integer up to nine digits long.
+ * @param {number} minor The minor version component, a positive integer up to nine digits long.
+ * @param {number} micro The micro version component, a positive integer up to nine digits long.
+ * @param {string} special The special version component, an arbitrary string.
  *
  * @return A new Version object.
  */
@@ -143,8 +143,8 @@ Version.MAX_NUM = 999999999;
  * Defines a boundary for a version range, which associates a Version object
  * with a flag for whether it is an inclusive or exclusive boundary.
  *
- * @param version   The #Version object.
- * @param inclusive True if this boundary is inclusive, false if it is exclusive.
+ * @param {object} version  The #Version object.
+ * @param {boolean} inclusive True if this boundary is inclusive, false if it is exclusive.
  *
  * @return A new VersionBound object.
  */
@@ -158,8 +158,8 @@ function VersionBound(version, inclusive)
  * @class VersionRange
  * Defines a range of versions using a lower boundary and optional upper boundary.
  *
- * @param lowerBound The #VersionBound object.
- * @param upperBound The #VersionBound object, or null for a range with no upper boundary.
+ * @param {object} lowerBound The #VersionBound object.
+ * @param {object} upperBound The #VersionBound object, or null for a range with no upper boundary.
  *
  * @return A new VersionRange object.
  */
@@ -175,8 +175,8 @@ function VersionRange(lowerBound, upperBound)
  * Extensions can declare dependencies on particular
  * CEP runtime versions in the extension manifest.
  *
- * @param name    The runtime name.
- * @param version A #VersionRange object that defines a range of valid versions.
+ * @param {string} name The runtime name.
+ * @param version A {@link VersionRange} object that defines a range of valid versions.
  *
  * @return A new Runtime object.
  */
@@ -190,23 +190,22 @@ function Runtime(name, versionRange)
 * @class Extension
 * Encapsulates a CEP-based extension to an Adobe application.
 *
-* @param id              The unique identifier of this extension.
-* @param name            The localizable display name of this extension.
-* @param mainPath        The path of the "index.html" file.
-* @param basePath        The base path of this extension.
-* @param windowType          The window type of the main window of this extension.
-                 Valid values are defined by #CSXSWindowType.
-* @param width           The default width in pixels of the main window of this extension.
-* @param height          The default height in pixels of the main window of this extension.
-* @param minWidth        The minimum width in pixels of the main window of this extension.
-* @param minHeight       The minimum height in pixels of the main window of this extension.
-* @param maxWidth        The maximum width in pixels of the main window of this extension.
-* @param maxHeight       The maximum height in pixels of the main window of this extension.
+* @param {string} id              The unique identifier of this extension.
+* @param {string} name            The localizable display name of this extension.
+* @param {string} mainPath        The path of the "index.html" file.
+* @param {string} basePath        The base path of this extension.
+* @param {string} windowType          The window type of the main window of this extension. Valid values are defined by {@link CSXSWindowType}.
+* @param {number} width           The default width in pixels of the main window of this extension.
+* @param {number} height          The default height in pixels of the main window of this extension.
+* @param {number} minWidth        The minimum width in pixels of the main window of this extension.
+* @param {number} minHeight       The minimum height in pixels of the main window of this extension.
+* @param {number} maxWidth        The maximum width in pixels of the main window of this extension.
+* @param {number} maxHeight       The maximum height in pixels of the main window of this extension.
 * @param defaultExtensionDataXml The extension data contained in the default ExtensionDispatchInfo section of the extension manifest.
 * @param specialExtensionDataXml The extension data contained in the application-specific ExtensionDispatchInfo section of the extension manifest.
-* @param requiredRuntimeList     An array of Runtime objects for runtimes required by this extension.
-* @param isAutoVisible       True if this extension is visible on loading.
-* @param isPluginExtension   True if this extension has been deployed in the Plugins folder of the host application.
+* @param {object[]} requiredRuntimeList     An array of Runtime objects for runtimes required by this extension.
+* @param {boolean} isAutoVisible       True if this extension is visible on loading.
+* @param {boolean} isPluginExtension   True if this extension has been deployed in the Plugins folder of the host application.
 *
 * @return A new Extension object.
 */
@@ -235,10 +234,10 @@ function Extension(id, name, mainPath, basePath, windowType, width, height, minW
  * @class CSEvent
  * A standard JavaScript event, the base class for CEP events.
  *
- * @param type        The name of the event type.
- * @param scope       The scope of event, can be "GLOBAL" or "APPLICATION".
- * @param appId       The unique identifier of the application that generated the event.
- * @param extensionId     The unique identifier of the extension that generated the event.
+ * @param {string} type        The name of the event type.
+ * @param {string} scope       The scope of event, can be "GLOBAL" or "APPLICATION".
+ * @param {string} appId       The unique identifier of the application that generated the event.
+ * @param {string} extensionId     The unique identifier of the extension that generated the event.
  *
  * @return A new CSEvent object
  */
@@ -304,10 +303,10 @@ ColorType.NONE = "none";
  * All values are in the range [0.0 to 255.0]. Invalid numeric values are
  * converted to numbers within this range.
  *
- * @param red   The red value, in the range [0.0 to 255.0].
- * @param green The green value, in the range [0.0 to 255.0].
- * @param blue  The blue value, in the range [0.0 to 255.0].
- * @param alpha The alpha (transparency) value, in the range [0.0 to 255.0].
+ * @param {number} red   The red value, in the range [0.0 to 255.0].
+ * @param {number} green The green value, in the range [0.0 to 255.0].
+ * @param {number} blue  The blue value, in the range [0.0 to 255.0].
+ * @param {number} alpha The alpha (transparency) value, in the range [0.0 to 255.0].
  *      The default, 255.0, means that the color is fully opaque.
  *
  * @return A new RGBColor object.
@@ -460,14 +459,14 @@ function HostCapabilities(EXTENDED_PANEL_MENU, EXTENDED_PANEL_ICONS, DELEGATE_AP
     this.EXTENDED_PANEL_ICONS = EXTENDED_PANEL_ICONS;
     this.DELEGATE_APE_ENGINE = DELEGATE_APE_ENGINE;
     this.SUPPORT_HTML_EXTENSIONS = SUPPORT_HTML_EXTENSIONS;
-	this.DISABLE_FLASH_EXTENSIONS = DISABLE_FLASH_EXTENSIONS; // Since 5.0.0
+	this.DISABLE_FLASH_EXTENSIONS = DISABLE_FLASH_EXTENSIONS; // @since 5.0.0
 }
 
 /**
  * @class ApiVersion
  * Stores current api version.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @param major  The major version
  * @param minor  The minor version.
@@ -486,7 +485,7 @@ function ApiVersion(major, minor, micro)
  * @class MenuItemStatus
  * Stores flyout menu item status
  *
- * Since 5.2.0
+ * @since 5.2.0
  *
  * @param menuItemLabel  The menu item label.
  * @param enabled  		 True if user wants to enable the menu item.
@@ -505,7 +504,7 @@ function MenuItemStatus(menuItemLabel, enabled, checked)
  * @class ContextMenuItemStatus
  * Stores the status of the context menu item.
  *
- * Since 5.2.0
+ * @since 5.2.0
  *
  * @param menuItemID     The menu item id.
  * @param enabled  		 True if user wants to enable the menu item.
@@ -538,7 +537,7 @@ function CSInterface()
 }
 
 /**
- * User can add this event listener to handle native application theme color changes.
+ * Users can add this event listener to handle native application theme color changes.
  * Callback function gives extensions ability to fine-tune their theme color after the
  * global theme color has been changed.
  * The callback function should be like below:
@@ -872,7 +871,7 @@ CSInterface.prototype.getOSInformation = function()
 /**
  * Opens a page in the default system browser.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @param url  The URL of the page/file to open, or the email address.
  * Must use HTTP/HTTPS/file/mailto protocol. For example:
@@ -897,7 +896,7 @@ CSInterface.prototype.openURLInDefaultBrowser = function(url)
 /**
  * Retrieves extension ID.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @return extension ID.
  */
@@ -909,9 +908,9 @@ CSInterface.prototype.getExtensionID = function()
 /**
  * Retrieves the scale factor of screen. 
  * On Windows platform, the value of scale factor might be different from operating system's scale factor,
- * since host application may use its self-defined scale factor.
+ * @since host application may use its self-defined scale factor.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @return One of the following float number.
  *      &lt;ul>
@@ -928,7 +927,7 @@ CSInterface.prototype.getScaleFactor = function()
 /**
  * Set a handler to detect any changes of scale factor. This only works on Mac.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @param handler   The function to be called when scale factor is changed.
  *
@@ -941,7 +940,7 @@ CSInterface.prototype.setScaleFactorChangedHandler = function(handler)
 /**
  * Retrieves current API version.
  *
- * Since 4.2.0
+ * @since 4.2.0
  *
  * @return ApiVersion object.
  *
@@ -955,16 +954,17 @@ CSInterface.prototype.getCurrentApiVersion = function()
 /**
  * Set panel flyout menu by an XML.
  *
- * Since 5.2.0
+ * @since 5.2.0
  *
- * Register a callback function for "com.adobe.csxs.events.flyoutMenuClicked" to get notified when a 
+ * Register a callback function for &lt;code>"com.adobe.csxs.events.flyoutMenuClicked"&lt;/code> to get notified when a 
  * menu item is clicked.
- * The "data" attribute of event is an object which contains "menuId" and "menuName" attributes. 
+ * The &lt;code>"data"&lt;/code> attribute of event is an object which contains &lt;code>"menuId"&lt;/code> and &lt;code>"menuName"&lt;/code> attributes. 
  *
- * Register callback functions for "com.adobe.csxs.events.flyoutMenuOpened" and "com.adobe.csxs.events.flyoutMenuClosed"
+ * Register callback functions for &lt;code>"com.adobe.csxs.events.flyoutMenuOpened"&lt;/code> and &lt;code>"com.adobe.csxs.events.flyoutMenuClosed"&lt;/code>
  * respectively to get notified when flyout menu is opened or closed.
  *
- * @param menu     A XML string which describes menu structure.
+ * @param {string} menu An XML string which describes menu structure.
+ * @example
  * An example menu XML:
  * &lt;Menu>
  *   &lt;MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checked="false"/>
@@ -993,13 +993,13 @@ CSInterface.prototype.setPanelFlyoutMenu = function(menu)
  * Updates a menu item in the extension window's flyout menu, by setting the enabled
  * and selection status.
  *  
- * Since 5.2.0
+ * @since 5.2.0
  *
- * @param menuItemLabel	The menu item label. 
- * @param enabled		True to enable the item, false to disable it (gray it out).
- * @param checked		True to select the item, false to deselect it.
+ * @param {string} menuItemLabel	The menu item label. 
+ * @param {boolean} enabled		True to enable the item, false to disable it (gray it out).
+ * @param {boolean} checked		True to select the item, false to deselect it.
  *
- * @return false when the host application does not support this functionality (HostCapabilities.EXTENDED_PANEL_MENU is false). 
+ * @return false when the host application does not support this functionality (&lt;code>HostCapabilities.EXTENDED_PANEL_MENU&lt;/code> is false). 
  *         Fails silently if menu label is invalid.
  *
  * @see HostCapabilities.EXTENDED_PANEL_MENU
@@ -1019,7 +1019,7 @@ CSInterface.prototype.updatePanelMenuItem = function(menuItemLabel, enabled, che
 /**
  * Set context menu by XML string.
  *
- * Since 5.2.0
+ * @since 5.2.0
  *
  * There are a number of conventions used to communicate what type of menu item to create and how it should be handled.
  * - an item without menu ID or menu name is disabled and is not shown.
@@ -1030,10 +1030,10 @@ CSInterface.prototype.updatePanelMenuItem = function(menuItemLabel, enabled, che
      https://developer.chrome.com/extensions/contextMenus
  * - the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.
  *
- * @param menu      A XML string which describes menu structure.
- * @param callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
+ * @param {string} menu      A XML string which describes menu structure.
+ * @param {function} callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
  *
- * @description An example menu XML:
+ * @example An example menu XML:
  * &lt;Menu>
  *   &lt;MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checkable="true" Checked="false" Icon="./image/small_16X16.png"/>
  *   &lt;MenuItem Id="menuItemId2" Label="TestExample2">
@@ -1059,21 +1059,23 @@ CSInterface.prototype.setContextMenu = function(menu, callback)
 /**
  * Set context menu by JSON string.
  *
- * Since 6.0.0
+ * @since 6.0.0
  *
  * There are a number of conventions used to communicate what type of menu item to create and how it should be handled.
- * - an item without menu ID or menu name is disabled and is not shown.
- * - if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.
- * - Checkable attribute takes precedence over Checked attribute.
- * - a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item. 
-     The Chrome extension contextMenus API was taken as a reference.
- * - the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.
-     https://developer.chrome.com/extensions/contextMenus
+ * &lt;ul>
+ *    &lt;li>an item without menu ID or menu name is disabled and is not shown.&lt;/li>
+ *    &lt;li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.&lt;/li>
+ *    &lt;li>checkable attribute takes precedence over Checked attribute.&lt;/li>
+ *    &lt;li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.&lt;/li>
+ *    &lt;li>The Chrome extension contextMenus API was taken as a reference.&lt;/li>
+ *    &lt;li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.&lt;/li>
+ * &lt;/ul>
+ *   {@link https://developer.chrome.com/extensions/contextMenus}
  *
  * @param menu      A JSON string which describes menu structure.
- * @param callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
+ * @param {function} callback  The callback function which is called when a menu item is clicked. The only parameter is the returned ID of clicked menu item.
  *
- * @description An example menu JSON:
+ * @example An example menu JSON:
  *
  * { 
  *      "menu": [
@@ -1138,11 +1140,11 @@ CSInterface.prototype.setContextMenuByJSON = function(menu, callback)
 /**
  * Updates a context menu item by setting the enabled and selection status.
  *  
- * Since 5.2.0
+ * @since 5.2.0
  *
- * @param menuItemID	The menu item ID. 
- * @param enabled		True to enable the item, false to disable it (gray it out).
- * @param checked		True to select the item, false to deselect it.
+ * @param {string} menuItemID	The menu item ID. 
+ * @param {boolean} enabled		True to enable the item, false to disable it (gray it out).
+ * @param {boolean} checked		True to select the item, false to deselect it.
  */
 CSInterface.prototype.updateContextMenuItem = function(menuItemID, enabled, checked)
 {
@@ -1153,7 +1155,7 @@ CSInterface.prototype.updateContextMenuItem = function(menuItemID, enabled, chec
 /**
  * Get the visibility status of an extension window. 
  *  
- * Since 6.0.0
+ * @since 6.0.0
  *
  * @return true if the extension window is visible; false if the extension window is hidden.
  */
@@ -1175,10 +1177,10 @@ CSInterface.prototype.isWindowVisible = function()
  *        it will not change to the desired dimensions even when the
  *        specified size satisfies min/max constraints.
  *
- * Since 6.0.0
+ * @since 6.0.0
  *
- * @param width  The new width
- * @param height The new height
+ * @param {number} width  The new width
+ * @param {number} height The new height
  */
 CSInterface.prototype.resizeContent = function(width, height)
 {
@@ -1190,14 +1192,26 @@ CSInterface.prototype.resizeContent = function(width, height)
  * This callback will be triggered when the extension tries to access the web site that contains the invalid certificate on the main frame.
  * But if the extension does not call this function and tries to access the web site containing the invalid certificate, a default error page will be shown.
  *  
- * Since 6.1.0
+ * @since 6.1.0
  *
- * @param callback the callback function
+ * @param {function} callback the callback function
  */
 CSInterface.prototype.registerInvalidCertificateCallback = function(callback)
 {
     return window.__adobe_cep__.registerInvalidCertificateCallback(callback);
 };
+
+
+/**
+* @typedef {object} JSON_String
+* @property {number} keyCode Required, represents an OS system dependent virtual key code identifying the unmodified value of the pressed key.
+* @property {boolean} ctrlKey [optional] a Boolean that indicates if the control key was pressed (true) or not (false) when the event occurred.
+* @property {boolean} altKey [optional] a Boolean that indicates if the alt key was pressed (true) or not (false) when the event occurred.
+* @property {boolean} shiftKey [optional] a Boolean that indicates if the shift key was pressed (true) or not (false) when the event occurred.
+* @property {boolean} metaKey [optional] (Mac Only) a Boolean that indicates if the Meta key was pressed (true) or not (false) when the event occurred. On Macintosh keyboards, this is the command key. To detect Windows key on Windows, please use keyCode instead.
+* 
+*/
+
 
 /**
  * Register an interest in some key events to prevent them from being sent to the host application.
@@ -1208,22 +1222,12 @@ CSInterface.prototype.registerInvalidCertificateCallback = function(callback)
  * If you want to intercept some key events and want them to be handled in the extension, please call this function
  * in advance to prevent them being sent to the host application.
  *
- * Since 6.1.0
+ * @since 6.1.0
  *
- * @param keyEventsInterest A JSON string describing those key events you are interested in. A null object or
-                                 an empty string will lead to removing the interest
- *
- * This JSON string should be an array, each object has following keys:
- *
- * keyCode:  [Required] represents an OS system dependent virtual key code identifying
- *           the unmodified value of the pressed key.
- * ctrlKey:  [optional] a Boolean that indicates if the control key was pressed (true) or not (false) when the event occurred.
- * altKey:   [optional] a Boolean that indicates if the alt key was pressed (true) or not (false) when the event occurred.
- * shiftKey: [optional] a Boolean that indicates if the shift key was pressed (true) or not (false) when the event occurred.
- * metaKey:  [optional] (Mac Only) a Boolean that indicates if the Meta key was pressed (true) or not (false) when the event occurred.
- *                      On Macintosh keyboards, this is the command key. To detect Windows key on Windows, please use keyCode instead.
- * An example JSON string:
+ * @param {JSON_String} keyEventsInterest A JSON string describing those key events you are interested in. A null object or an empty string will lead to removing the interest
+ *                      
  * @example
+ * An example JSON string:
  *
  * [
  *     {
@@ -1250,9 +1254,9 @@ CSInterface.prototype.registerKeyEventsInterest = function(keyEventsInterest)
  * Set the title of the extension window. 
  * This function works with modal and modeless extensions in all Adobe products, and panel extensions in Photoshop, InDesign, InCopy, Illustrator, Flash Pro and Dreamweaver.
  *
- * Since 6.1.0
+ * @since 6.1.0
  *
- * @param title The window title.
+ * @param {string} title The window title.
  */
 CSInterface.prototype.setWindowTitle = function(title)
 {
@@ -1263,7 +1267,7 @@ CSInterface.prototype.setWindowTitle = function(title)
  * Get the title of the extension window. 
  * This function works with modal and modeless extensions in all Adobe products, and panel extensions in Photoshop, InDesign, InCopy, Illustrator, Flash Pro and Dreamweaver.
  *
- * Since 6.1.0
+ * @since 6.1.0
  *
  * @return The window title.
  */
@@ -1311,12 +1315,13 @@ CSInterface.prototype.getWindowTitle = function()
 
 	<span class="copyright">
 	DocStrap Copyright © 2012-2018 The contributors to the JSDoc3 and DocStrap projects.
+ CEP Resources © 2013 Adobe Systems Incorporated.
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Sat Jan 13th 2018
+		on Sun Jan 14th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
