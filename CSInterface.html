@@ -3457,7 +3457,7 @@ specified size satisfies min/max constraints.</code></pre></li>
 	<dt class="tag-since method-doc-label method-doc-details-label">Since:</dt>
 	<dd class="tag-since">
 		<ul class="dummy">
-			<li>5.2.0There are a number of conventions used to communicate what type of menu item to create and how it should be handled.<ul>   <li>an item without menu ID or menu name is disabled and is not shown.</li>   <li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.</li>   <li>checkable attribute takes precedence over Checked attribute.</li>   <li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.</li>   <li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.</li></ul>The Chrome extension <a href="https://developer.chrome.com/extensions/contextMenus">contextMenus API</a> was taken as a reference.</li>
+			<li>5.2.0<br />There are a number of conventions used to communicate what type of menu item to create and how it should be handled.<ul>   <li>an item without menu ID or menu name is disabled and is not shown.</li>   <li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.</li>   <li>checkable attribute takes precedence over Checked attribute.</li>   <li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.</li>   <li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.</li></ul>The Chrome extension <a href="https://developer.chrome.com/extensions/contextMenus">contextMenus API</a> was taken as a reference.</li>
 		</ul>
 	</dd>
 	
@@ -3626,7 +3626,7 @@ specified size satisfies min/max constraints.</code></pre></li>
 	<dt class="tag-since method-doc-label method-doc-details-label">Since:</dt>
 	<dd class="tag-since">
 		<ul class="dummy">
-			<li>6.0.0There are a number of conventions used to communicate what type of menu item to create and how it should be handled.<ul>   <li>an item without menu ID or menu name is disabled and is not shown.</li>   <li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.</li>   <li>checkable attribute takes precedence over Checked attribute.</li>   <li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.</li>   <li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.</li></ul>The Chrome extension <a href="https://developer.chrome.com/extensions/contextMenus">contextMenus API</a> was taken as a reference.</li>
+			<li>6.0.0<br />There are a number of conventions used to communicate what type of menu item to create and how it should be handled.<ul>   <li>an item without menu ID or menu name is disabled and is not shown.</li>   <li>if the item label is "---" (three hyphens) then it is treated as a separator. The menu ID in this case will always be NULL.</li>   <li>checkable attribute takes precedence over Checked attribute.</li>   <li>a PNG icon. For optimal display results please supply a 16 x 16px icon as larger dimensions will increase the size of the menu item.</li>   <li>the items with icons and checkable items cannot coexist on the same menu level. The former take precedences over the latter.</li></ul>The Chrome extension <a href="https://developer.chrome.com/extensions/contextMenus">contextMenus API</a> was taken as a reference.</li>
 		</ul>
 	</dd>
 	
@@ -3777,7 +3777,7 @@ specified size satisfies min/max constraints.</code></pre></li>
 	<dt class="tag-since method-doc-label method-doc-details-label">Since:</dt>
 	<dd class="tag-since">
 		<ul class="dummy">
-			<li>5.2.0Register a callback function for <code>"com.adobe.csxs.events.flyoutMenuClicked"</code> to get notified when a menu item is clicked.The <code>"data"</code> attribute of event is an object which contains <code>"menuId"</code> and <code>"menuName"</code> attributes. Register callback functions for <code>"com.adobe.csxs.events.flyoutMenuOpened"</code> and <code>"com.adobe.csxs.events.flyoutMenuClosed"</code>respectively to get notified when flyout menu is opened or closed.</li>
+			<li>5.2.0<br/>Register a callback function for <code>"com.adobe.csxs.events.flyoutMenuClicked"</code> to get notified when a menu item is clicked.The <code>"data"</code> attribute of event is an object which contains <code>"menuId"</code> and <code>"menuName"</code> attributes. Register callback functions for <code>"com.adobe.csxs.events.flyoutMenuOpened"</code> and <code>"com.adobe.csxs.events.flyoutMenuClosed"</code>respectively to get notified when flyout menu is opened or closed.</li>
 		</ul>
 	</dd>
 	
@@ -3839,7 +3839,7 @@ specified size satisfies min/max constraints.</code></pre></li>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">An example menu XML:&lt;Menu&gt;  &lt;MenuItem Id=&quot;menuItemId1&quot; Label=&quot;TestExample1&quot; Enabled=&quot;true&quot; Checked=&quot;false&quot;/&gt;  &lt;MenuItem Label=&quot;TestExample2&quot;&gt;    &lt;MenuItem Label=&quot;TestExample2-1&quot; &gt;      &lt;MenuItem Label=&quot;TestExample2-1-1&quot; Enabled=&quot;false&quot; Checked=&quot;true&quot;/&gt;    &lt;/MenuItem&gt;    &lt;MenuItem Label=&quot;TestExample2-2&quot; Enabled=&quot;true&quot; Checked=&quot;true&quot;/&gt;  &lt;/MenuItem&gt;  &lt;MenuItem Label=&quot;---&quot; /&gt;  &lt;MenuItem Label=&quot;TestExample3&quot; Enabled=&quot;false&quot; Checked=&quot;false&quot;/&gt;&lt;/Menu&gt;</pre>
+    <pre class="sunlight-highlight-javascript">An example menu XML:&#x27;&lt;Menu&gt;  &lt;MenuItem Id=&quot;menuItemId1&quot; Label=&quot;TestExample1&quot; Enabled=&quot;true&quot; Checked=&quot;false&quot;/&gt;  &lt;MenuItem Label=&quot;TestExample2&quot;&gt;    &lt;MenuItem Label=&quot;TestExample2-1&quot; &gt;      &lt;MenuItem Label=&quot;TestExample2-1-1&quot; Enabled=&quot;false&quot; Checked=&quot;true&quot;/&gt;    &lt;/MenuItem&gt;    &lt;MenuItem Label=&quot;TestExample2-2&quot; Enabled=&quot;true&quot; Checked=&quot;true&quot;/&gt;  &lt;/MenuItem&gt;  &lt;MenuItem Label=&quot;---&quot; /&gt;  &lt;MenuItem Label=&quot;TestExample3&quot; Enabled=&quot;false&quot; Checked=&quot;false&quot;/&gt;&lt;/Menu&gt;&#x27;</pre>
 
 
     

@@ -954,7 +954,7 @@ CSInterface.prototype.getCurrentApiVersion = function()
 /**
  * Set panel flyout menu by an XML.
  *
- * @since 5.2.0
+ * @since 5.2.0&lt;br/>
  *
  * Register a callback function for &lt;code>"com.adobe.csxs.events.flyoutMenuClicked"&lt;/code> to get notified when a 
  * menu item is clicked.
@@ -966,7 +966,7 @@ CSInterface.prototype.getCurrentApiVersion = function()
  * @param {string} menu An XML string which describes menu structure.
  * @example
  * An example menu XML:
- * &lt;Menu>
+ * '&lt;Menu>
  *   &lt;MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checked="false"/>
  *   &lt;MenuItem Label="TestExample2">
  *     &lt;MenuItem Label="TestExample2-1" >
@@ -976,7 +976,7 @@ CSInterface.prototype.getCurrentApiVersion = function()
  *   &lt;/MenuItem>
  *   &lt;MenuItem Label="---" />
  *   &lt;MenuItem Label="TestExample3" Enabled="false" Checked="false"/>
- * &lt;/Menu>
+ * &lt;/Menu>'
  *
  */
 CSInterface.prototype.setPanelFlyoutMenu = function(menu)
@@ -1019,7 +1019,7 @@ CSInterface.prototype.updatePanelMenuItem = function(menuItemLabel, enabled, che
 /**
  * Set context menu by XML string.
  *
- * @since 5.2.0
+ * @since 5.2.0&lt;br />
  *
  * There are a number of conventions used to communicate what type of menu item to create and how it should be handled.
  * &lt;ul>
@@ -1061,7 +1061,7 @@ CSInterface.prototype.setContextMenu = function(menu, callback)
 /**
  * Set context menu by JSON string.
  *
- * @since 6.0.0
+ * @since 6.0.0&lt;br />
  *
  * There are a number of conventions used to communicate what type of menu item to create and how it should be handled.
  * &lt;ul>
