@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>CEP 8 API Source: CEPEngine_extensions.js</title>
+	<title>Adobe CEP8 API Source: CEPEngine_extensions.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">CEP 8 API</a>
+		<a class="navbar-brand" href="index.html">Adobe CEP8 API</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -29,6 +29,13 @@
 	</div>
 	<div class="navbar-collapse collapse" id="topNavigation">
 		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="cep.html">cep</a></li><li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
+				</ul>
+			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
@@ -40,7 +47,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#An">An</a></li><li><a href="global.html#Base64">Base64</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#deprecated">deprecated</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#File">File</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#Invalid">Invalid</a></li><li><a href="global.html#No">No</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#Specified">Specified</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#Target">Target</a></li><li><a href="global.html#The">The</a></li><li><a href="global.html#Unknown">Unknown</a></li><li><a href="global.html#UTF8">UTF8</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
 				</ul>
 			</li>
 			
@@ -78,32 +85,51 @@
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**************************************************************************************************
-*
-* ADOBE SYSTEMS INCORPORATED
-* Copyright 2013 Adobe Systems Incorporated
-* All Rights Reserved.
-*
-* NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the
-* terms of the Adobe license agreement accompanying it.  If you have received this file from a
-* source other than Adobe, then your use, modification, or distribution of it requires the prior
-* written permission of Adobe.
-*
-**************************************************************************************************/
+ *
+ * ADOBE SYSTEMS INCORPORATED
+ * Copyright 2013 Adobe Systems Incorporated
+ * All Rights Reserved.
+ *
+ * NOTICE:  Adobe permits you to use, modify, and distribute this file in accordance with the
+ * terms of the Adobe license agreement accompanying it.  If you have received this file from a
+ * source other than Adobe, then your use, modification, or distribution of it requires the prior
+ * written permission of Adobe.
+ *
+ **************************************************************************************************/
 
 
 /** CEPEngine - v8.0.0 */
 /** This is the JavaScript code for bridging to native functionality
-* See CEPEngine_extensions.cpp for implementation of native methods.
-*
-* Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD. */
+ * See CEPEngine_extensions.cpp for implementation of native methods.
+ *
+ * Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD. */
 
 /*jslint vars: true, plusplus: true, devel: true, browser: true, nomen: true, indent: 4, forin: true, maxerr: 50, regexp: true, undefined: 0 */
 /*global define, native */
-/*eslint no-undefined: 0; */
 
+/**
+ * The entry point namespace for the CEPEngine interface
+ * @namespace cep
+ */
+/**
+ * @namespace cep.fs
+ *@memberOf cep
+ */
+/**
+ * @namespace cep.process
+ *@memberOf cep
+ */
+/**
+ * @namespace cep.encoding
+ *@memberOf cep
+ */
+/**
+ * @namespace cep.util
+ *@memberOf cep
+ */
 var cep;
 if (!cep) {
-   cep = {};
+    cep = {};
 }
 if (!cep.fs) {
     cep.fs = {};
@@ -120,13 +146,15 @@ if (!cep.util) {
 
 (function () {
     // Internal function to get the last error code.
-//    native function GetLastError();
+    //    native function GetLastError();
     function getLastError() {
         return GetLastError();
     }
 
-    function getErrorResult(){
-        var result = {err: getLastError()};
+    function getErrorResult() {
+        var result = {
+            err: getLastError()
+        };
         return result;
     }
 
@@ -134,84 +162,118 @@ if (!cep.util) {
     // at the top of CEPEngine_extensions.cpp
 
     /**
-     * @constant No error.
+     * Numeric value for null error codes
+     * @constant cep.fs.NO_ERROR.
+     * @memberOf cep.fs
      */
-    cep.fs.NO_ERROR                    = 0;
+    cep.fs.NO_ERROR = 0;
 
     /**
-     * @constant Unknown error occurred.
+     * @constant cep.fs.ERR_UNKNOWN
+     * @memberOf cep.fs
+     * Unknown error occurred.
      */
-    cep.fs.ERR_UNKNOWN                 = 1;
+    cep.fs.ERR_UNKNOWN = 1;
 
     /**
-     * @constant Invalid parameters passed to function.
+     * Invalid parameters passed to function.
+     * @constant cep.fs.ERR_INVALID_PARAMS
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_INVALID_PARAMS          = 2;
+    cep.fs.ERR_INVALID_PARAMS = 2;
 
     /**
-     * @constant File or directory was not found.
+     * File or directory was not found.
+     * @constant cep.fs.ERR_NOT_FOUND
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_NOT_FOUND               = 3;
+    cep.fs.ERR_NOT_FOUND = 3;
 
     /**
-     * @constant File or directory could not be read.
+     * File or directory could not be read.
+     * @constant cep.fs.ERR_CANT_READ
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_CANT_READ               = 4;
+    cep.fs.ERR_CANT_READ = 4;
 
     /**
-     * @constant An unsupported encoding value was specified.
+     * An unsupported encoding value was specified.
+     * @constant cep.fs.ERR_UNSUPPORTED_ENCODING
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_UNSUPPORTED_ENCODING    = 5;
+    cep.fs.ERR_UNSUPPORTED_ENCODING = 5;
 
     /**
-     * @constant File could not be written.
+     * File could not be written.
+     * @constant cep.fs.ERR_CANT_WRITE
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_CANT_WRITE              = 6;
+    cep.fs.ERR_CANT_WRITE = 6;
 
     /**
-     * @constant Target directory is out of space. File could not be written.
+     * Target directory is out of space. File could not be written.
+     * @constant cep.fs.ERR_OUT_OF_SPACE
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_OUT_OF_SPACE            = 7;
+    cep.fs.ERR_OUT_OF_SPACE = 7;
 
     /**
-     * @constant Specified path does not point to a file.
+     * Specified path does not point to a file.
+     * @constant cep.fs.ERR_NOT_FILE
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_NOT_FILE                = 8;
+    cep.fs.ERR_NOT_FILE = 8;
 
     /**
-     * @constant Specified path does not point to a directory.
+     * Specified path does not point to a directory.
+     * @constant cep.fs.ERR_NOT_DIRECTORY
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_NOT_DIRECTORY           = 9;
+    cep.fs.ERR_NOT_DIRECTORY = 9;
 
     /**
-     * @constant Specified file already exists.
+     * Specified file already exists.
+     * @constant cep.fs.ERR_FILE_EXISTS
+     * @memberOf cep.fs
      */
-    cep.fs.ERR_FILE_EXISTS             = 10;
+    cep.fs.ERR_FILE_EXISTS = 10;
 
     /**
-     * @constant The maximum number of processes has been exceeded.
+     * The maximum number of processes has been exceeded.
+     * @constant cep.process.ERR_EXCEED_MAX_NUM_PROCESS
+     * @memberOf cep.process
      */
-    cep.process.ERR_EXCEED_MAX_NUM_PROCESS  = 101;
+    cep.process.ERR_EXCEED_MAX_NUM_PROCESS = 101;
 
     /**
-     * @constant Invalid URL.
+     * Invalid URL.
+     * @constant cep.util.ERR_INVALID_URL
+     * @memberOf cep.util
      */
     cep.util.ERR_INVALID_URL = 201;
-    
-    /**
-     * @constant deprecated API.
-     */         
-     cep.util.DEPRECATED_API = 202;
 
     /**
-     * @constant UTF8 encoding type.
+     * deprecated API.
+     * @constant cep.util.DEPRECATED_API
+     * @memberOf cep.util
      */
-    cep.encoding.UTF8                   = "UTF-8";
+    cep.util.DEPRECATED_API = 202;
 
     /**
-     * @constant Base64 encoding type.
+     * UTF8 encoding type.
+     * @constant cep.encoding.UTF8
+     * @memberOf cep.encoding
+     * @returns {string} encoding type 
      */
-    cep.encoding.Base64                 = "Base64";
+    cep.encoding.UTF8 = "UTF-8";
+
+    /**
+     * Base64 encoding type.
+     * @constant cep.encoding.Base64
+     * @memberOf cep.encoding
+     * @returns {string} encoding type 
+     */
+    cep.encoding.Base64 = "Base64";
 
     /**
      * Displays the OS File Open dialog, allowing the user to select files or directories.
@@ -232,14 +294,17 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
      **/
-//    native function ShowOpenDialog();
+    //    native function ShowOpenDialog();
     cep.fs.showOpenDialog = function (allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes) {
-           var resultString = ShowOpenDialog(allowMultipleSelection, chooseDirectory,
-                                             title || 'Open', initialPath || '',
-                                             fileTypes ? fileTypes.join(' ') : '');
+        var resultString = ShowOpenDialog(allowMultipleSelection, chooseDirectory,
+            title || 'Open', initialPath || '',
+            fileTypes ? fileTypes.join(' ') : '');
 
-           var result = {data: JSON.parse(resultString || '[]'), err: getLastError() };
-           return result;
+        var result = {
+            data: JSON.parse(resultString || '[]'),
+            err: getLastError()
+        };
+        return result;
     };
 
     /**
@@ -267,16 +332,19 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
      **/
-//    native function ShowOpenDialogEx();
+    //    native function ShowOpenDialogEx();
     cep.fs.showOpenDialogEx = function (allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes,
-                                        friendlyFilePrefix, prompt) {
-           var resultString = ShowOpenDialogEx(allowMultipleSelection, chooseDirectory,
-                                               title || 'Open', initialPath || '',
-                                               fileTypes ? fileTypes.join(' ') : '', friendlyFilePrefix || '',
-                                               prompt || '');
+        friendlyFilePrefix, prompt) {
+        var resultString = ShowOpenDialogEx(allowMultipleSelection, chooseDirectory,
+            title || 'Open', initialPath || '',
+            fileTypes ? fileTypes.join(' ') : '', friendlyFilePrefix || '',
+            prompt || '');
 
-           var result = {data: JSON.parse(resultString || '[]'), err: getLastError() };
-           return result;
+        var result = {
+            data: JSON.parse(resultString || '[]'),
+            err: getLastError()
+        };
+        return result;
     };
 
     /**
@@ -302,14 +370,17 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
      **/
-//    native function ShowSaveDialogEx();
+    //    native function ShowSaveDialogEx();
     cep.fs.showSaveDialogEx = function (title, initialPath, fileTypes, defaultName, friendlyFilePrefix, prompt, nameFieldLabel) {
-           var resultString = ShowSaveDialogEx(title || '', initialPath || '',
-                                               fileTypes ? fileTypes.join(' ') : '', defaultName || '',
-                                               friendlyFilePrefix || '', prompt || '', nameFieldLabel || '');
+        var resultString = ShowSaveDialogEx(title || '', initialPath || '',
+            fileTypes ? fileTypes.join(' ') : '', defaultName || '',
+            friendlyFilePrefix || '', prompt || '', nameFieldLabel || '');
 
-           var result = {data: resultString || '', err: getLastError() };
-           return result;
+        var result = {
+            data: resultString || '',
+            err: getLastError()
+        };
+        return result;
     };
 
     /**
@@ -326,11 +397,14 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_CANT_READ &lt;/li>&lt;/ul>
      **/
-//    native function ReadDir();
+    //    native function ReadDir();
     cep.fs.readdir = function (path) {
         var resultString = ReadDir(path);
-        var result = {data: JSON.parse(resultString || '[]'), err: getLastError() };
-         return result;
+        var result = {
+            data: JSON.parse(resultString || '[]'),
+            err: getLastError()
+        };
+        return result;
     };
 
     /**
@@ -344,7 +418,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
      **/
-//     native function MakeDir();
+    //     native function MakeDir();
     cep.fs.makedir = function (path) {
         MakeDir(path);
         return getErrorResult();
@@ -364,8 +438,8 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_FILE_EXISTS &lt;/li>&lt;/ul>
      **/
-//     native function Rename();
-    cep.fs.rename = function(oldPath, newPath) {
+    //     native function Rename();
+    cep.fs.rename = function (oldPath, newPath) {
         Rename(oldPath, newPath);
         return getErrorResult();
     };
@@ -387,22 +461,22 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND  &lt;/li>
      *      &lt;/ul>
      **/
-//    native function IsDirectory();
-//    native function GetFileModificationTime();
+    //    native function IsDirectory();
+    //    native function GetFileModificationTime();
     cep.fs.stat = function (path) {
         var isDir = IsDirectory(path);
         var modtime = GetFileModificationTime(path);
         var result = {
-        data: {
-            isFile: function () {
-                return !isDir;
+            data: {
+                isFile: function () {
+                    return !isDir;
+                },
+                isDirectory: function () {
+                    return isDir;
+                },
+                mtime: modtime
             },
-            isDirectory: function () {
-                return isDir;
-            },
-            mtime: modtime
-        },
-        err: getLastError()
+            err: getLastError()
         };
 
         return result;
@@ -426,11 +500,14 @@ if (!cep.util) {
      *          &lt;br>ERR_UNSUPPORTED_ENCODING &lt;/li>
      *      &lt;/ul>
      **/
-//    native function ReadFile();
+    //    native function ReadFile();
     cep.fs.readFile = function (path, encoding) {
         encoding = encoding ? encoding : cep.encoding.UTF8;
         var contents = ReadFile(path, encoding);
-        var result = {data: contents, err: getLastError() };
+        var result = {
+            data: contents,
+            err: getLastError()
+        };
         return result;
     };
 
@@ -451,7 +528,7 @@ if (!cep.util) {
      *          &lt;br>ERR_CANT_WRITE
      *          &lt;br>ERR_OUT_OF_SPACE &lt;/li>&lt;/ul>
      **/
-//    native function WriteFile();
+    //    native function WriteFile();
     cep.fs.writeFile = function (path, data, encoding) {
         encoding = encoding ? encoding : cep.encoding.UTF8;
         WriteFile(path, data, encoding);
@@ -471,7 +548,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_CANT_WRITE &lt;/li>&lt;/ul>
      **/
-//    native function SetPosixPermissions();
+    //    native function SetPosixPermissions();
     cep.fs.chmod = function (path, mode) {
         SetPosixPermissions(path, mode);
         return getErrorResult();
@@ -490,11 +567,13 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_NOT_FILE &lt;/li>&lt;/ul>
      **/
-//    native function DeleteFileOrDirectory();
-//    native function IsDirectory();
+    //    native function DeleteFileOrDirectory();
+    //    native function IsDirectory();
     cep.fs.deleteFile = function (path) {
         if (IsDirectory(path)) {
-            var result = {err: cep.fs.ERR_NOT_FILE};
+            var result = {
+                err: cep.fs.ERR_NOT_FILE
+            };
             return result;
         }
         DeleteFileOrDirectory(path);
@@ -518,11 +597,14 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FILE&lt;/li>
      *      &lt;/ul>
      **/
-//    native function CreateProcess();
+    //    native function CreateProcess();
     cep.process.createProcess = function () {
         var args = Array.prototype.slice.call(arguments);
         var pid = CreateProcess(args);
-        var result = {data: pid, err: getLastError()};
+        var result = {
+            data: pid,
+            err: getLastError()
+        };
         return result;
     };
 
@@ -539,7 +621,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function SetupStdOutHandler();
+    //    native function SetupStdOutHandler();
     cep.process.stdout = function (pid, callback) {
         SetupStdOutHandler(pid, callback);
         return getErrorResult();
@@ -558,7 +640,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function SetupStdErrHandler();
+    //    native function SetupStdErrHandler();
     cep.process.stderr = function (pid, callback) {
         SetupStdErrHandler(pid, callback);
         return getErrorResult();
@@ -577,7 +659,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function WriteStdIn();
+    //    native function WriteStdIn();
     cep.process.stdin = function (pid, data) {
         WriteStdIn(pid, data);
         return getErrorResult();
@@ -596,10 +678,13 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function GetWorkingDirectory();
+    //    native function GetWorkingDirectory();
     cep.process.getWorkingDirectory = function (pid) {
         var wd = GetWorkingDirectory(pid);
-        var result = {data: wd, err: getLastError()};
+        var result = {
+            data: wd,
+            err: getLastError()
+        };
         return result;
     };
 
@@ -615,7 +700,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function WaitFor();
+    //    native function WaitFor();
     cep.process.waitfor = function (pid) {
         WaitFor(pid);
         return getErrorResult();
@@ -634,7 +719,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function OnQuit();
+    //    native function OnQuit();
     cep.process.onquit = function (pid, callback) {
         OnQuit(pid, callback);
         return getErrorResult();
@@ -653,10 +738,13 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function IsRunning();
+    //    native function IsRunning();
     cep.process.isRunning = function (pid) {
         var isRunning = IsRunning(pid);
-        var result = {data: isRunning, err: getLastError()};
+        var result = {
+            data: isRunning,
+            err: getLastError()
+        };
         return result;
     };
 
@@ -672,42 +760,41 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
      **/
-//    native function Terminate();
+    //    native function Terminate();
     cep.process.terminate = function (pid) {
         Terminate(pid);
         return getErrorResult();
     };
 
-   /**
-    * Encoding conversions.
-    *
-    */
-    cep.encoding.convertion =
-    {
-        utf8_to_b64: function(str) {
+    /**
+     * Encoding conversions.
+     *
+     */
+    cep.encoding.convertion = {
+        utf8_to_b64: function (str) {
             return window.btoa(unescape(encodeURIComponent(str)));
         },
 
-        b64_to_utf8: function(base64str) {
+        b64_to_utf8: function (base64str) {
             // If a base64 string contains any whitespace character, DOM Exception 5 occurs during window.atob, please see
-			// http://stackoverflow.com/questions/14695988/dom-exception-5-invalid-character-error-on-valid-base64-image-string-in-javascri
+            // http://stackoverflow.com/questions/14695988/dom-exception-5-invalid-character-error-on-valid-base64-image-string-in-javascri
             base64str = base64str.replace(/\s/g, '');
             return decodeURIComponent(escape(window.atob(base64str)));
         },
 
-        binary_to_b64: function(binary) {
+        binary_to_b64: function (binary) {
             return window.btoa(binary);
         },
 
-        b64_to_binary: function(base64str) {
+        b64_to_binary: function (base64str) {
             return window.atob(base64str);
         },
 
-        ascii_to_b64: function(ascii) {
+        ascii_to_b64: function (ascii) {
             return window.btoa(binary);
         },
 
-        b64_to_ascii: function(base64str) {
+        b64_to_ascii: function (base64str) {
             return window.atob(base64str);
         }
     };
@@ -728,16 +815,18 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
      **/
-//    native function OpenURLInDefaultBrowser();
+    //    native function OpenURLInDefaultBrowser();
     cep.util.openURLInDefaultBrowser = function (url) {
-        if (url &amp;&amp; (url.indexOf("http://") === 0 || 
-                    url.indexOf("https://") === 0 || 
-                    url.indexOf("file://") === 0 || 
-                    url.indexOf("mailto:") === 0)) {
+        if (url &amp;&amp; (url.indexOf("http://") === 0 ||
+                url.indexOf("https://") === 0 ||
+                url.indexOf("file://") === 0 ||
+                url.indexOf("mailto:") === 0)) {
             OpenURLInDefaultBrowser(url);
             return getErrorResult();
         } else {
-            return { err : cep.util.ERR_INVALID_URL };
+            return {
+                err: cep.util.ERR_INVALID_URL
+            };
         }
     };
 
@@ -754,11 +843,13 @@ if (!cep.util) {
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
      **/
-//    native function RegisterExtensionUnloadCallback();
+    //    native function RegisterExtensionUnloadCallback();
     cep.util.registerExtensionUnloadCallback = function (callback) {
-        return { err : cep.util.DEPRECATED_API };
+        return {
+            err: cep.util.DEPRECATED_API
+        };
     };
-    
+
     /**
      * Stores the user's proxy credentials
      *
@@ -771,12 +862,12 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
      **/
-//    native function StoreProxyCredentials();
+    //    native function StoreProxyCredentials();
     cep.util.storeProxyCredentials = function (username, password) {
-           StoreProxyCredentials(username, password);
-           return getErrorResult();
+        StoreProxyCredentials(username, password);
+        return getErrorResult();
     };
-    
+
 })();
 </pre>
     </article>
@@ -824,7 +915,7 @@ if (!cep.util) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Mon Jan 15th 2018
+		on Tue Jan 23rd 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

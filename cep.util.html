@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Adobe CEP8 API Class: AgoraLib</title>
+	<title>Adobe CEP8 API Namespace: util</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,17 +79,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: AgoraLib</h1>
+	<h1 class="page-title">Namespace: util</h1>
 <section>
 
 <header>
     
         <h2>
-        AgoraLib
-        </h2>
+            <span class="ancestors"><a href="cep.html">cep</a>.</span>
         
-            <div class="class-description"><p>AgoraLib</p>
-<p>AgoraLib provides an interface to the Adobe Exchange service and Exchange plugin.<br>Please note that Vulcan.js is required.</p></div>
+        util
+        </h2>
         
     
 </header>
@@ -99,24 +98,8 @@
     <div class="container-overview">
     
         
-<hr>
-<dt>
-    <h4 class="name" id="AgoraLib"><span class="type-signature"></span>new AgoraLib()</h4>
-    
-    
-</dt>
-<dd>
 
-    
-
-    
-
-    
-
-    
-    
-
-    
+        
 <dl class="details">
     
 
@@ -151,8 +134,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="AgoraLib.js.html">AgoraLib.js</a>,
-				 <a href="AgoraLib.js.html#sunlight-1-line-22">line 22</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-40">line 40</a>
 			</li>
 		</ul>
 	</dd>
@@ -166,21 +149,7 @@
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
+        
     
     </div>
 
@@ -200,15 +169,15 @@
         <dl>
             
 <hr>
-<dt class="name" id=".status">
-    <h4 id=".status"><span class="type-signature">&lt;static> </span>status<span class="type-signature"></span></h4>
+<dt class="name" id=".DEPRECATED_API">
+    <h4 id=".DEPRECATED_API"><span class="type-signature">&lt;static, constant> </span>DEPRECATED_API<span class="type-signature"></span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Provides consts for some of the status responses returned by the AgoraLib client.</p>
+        <p>deprecated API.</p>
     </div>
     
 
@@ -249,8 +218,78 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="AgoraLib.js.html">AgoraLib.js</a>,
-				 <a href="AgoraLib.js.html#sunlight-1-line-428">line 428</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-169">line 169</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ERR_INVALID_URL">
+    <h4 id=".ERR_INVALID_URL"><span class="type-signature">&lt;static, constant> </span>ERR_INVALID_URL<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Invalid URL.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-162">line 162</a>
 			</li>
 		</ul>
 	</dd>
@@ -270,6 +309,490 @@
         </dl>
     
 
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".openURLInDefaultBrowser"><span class="type-signature">&lt;static> </span>openURLInDefaultBrowser(url)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Opens a page in the default system browser.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL of the page/file to open, or the email address.<br>Must use HTTP/HTTPS/file/mailto. For example:<br> &quot;http://www.adobe.com&quot;<br> &quot;https://github.com&quot;<br> &quot;file:///C:/log.txt&quot;<br> &quot;mailto:test@adobe.com&quot;</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-733">line 733</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS</li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".registerExtensionUnloadCallback"><span class="type-signature">&lt;static> </span>registerExtensionUnloadCallback(callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Registers a callback function for extension unload. If called more than once,<br>the last callback that is successfully registered is used.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The handler function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+	<dt class="important tag-deprecated method-doc-label method-doc-details-label">Deprecated:</dt>
+	
+    <dd>
+        <ul class="dummy">
+            <li>since version 6.0.0</li>
+        </ul>
+    </dd>
+    
+    
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-761">line 761</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS</li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".storeProxyCredentials"><span class="type-signature">&lt;static> </span>storeProxyCredentials(username, password)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Stores the user's proxy credentials</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>proxy username</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>proxy password</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-780">line 780</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS </li><br>     </ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        </dl>
     
 
     

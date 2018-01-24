@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Adobe CEP8 API Class: Vulcan</title>
+	<title>Adobe CEP8 API Namespace: process</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,17 +79,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: Vulcan</h1>
+	<h1 class="page-title">Namespace: process</h1>
 <section>
 
 <header>
     
         <h2>
-        Vulcan
-        </h2>
+            <span class="ancestors"><a href="cep.html">cep</a>.</span>
         
-            <div class="class-description"><p>Vulcan</p>
-<p>The singleton instance, <tt>VulcanInterface</tt>, provides an interface<br>to the Vulcan. Allows you to launch CC applications<br>and discover information about them.</p></div>
+        process
+        </h2>
         
     
 </header>
@@ -99,21 +98,89 @@
     <div class="container-overview">
     
         
-<hr>
-<dt>
-    <h4 class="name" id="Vulcan"><span class="type-signature"></span>new Vulcan()</h4>
+
+        
+<dl class="details">
     
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-32">line 32</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".ERR_EXCEED_MAX_NUM_PROCESS">
+    <h4 id=".ERR_EXCEED_MAX_NUM_PROCESS"><span class="type-signature">&lt;static, constant> </span>ERR_EXCEED_MAX_NUM_PROCESS<span class="type-signature"></span></h4>
+
     
 </dt>
 <dd>
-
+    
+    <div class="description">
+        <p>The maximum number of processes has been exceeded.</p>
+    </div>
     
 
-    
-
-    
-
-    
     
 
     
@@ -151,8 +218,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-23">line 23</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-155">line 155</a>
 			</li>
 		</ul>
 	</dd>
@@ -167,33 +234,9 @@
 
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 </dd>
 
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
+        </dl>
     
 
     
@@ -203,7 +246,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="addMessageListener"><span class="type-signature"></span>addMessageListener(type, callback, obj)</h4>
+    <h4 class="name" id=".createProcess"><span class="type-signature">&lt;static> </span>createProcess(arguments)</h4>
     
     
 </dt>
@@ -211,7 +254,7 @@
 
     
     <div class="description">
-        <p>Registers a message listener callback function for a Vulcan message.</p>
+        <p>Creates a process.</p>
     </div>
     
 
@@ -246,10 +289,16 @@
 
         <tr>
             
-                <td class="name"><code>type</code></td>
+                <td class="name"><code>arguments</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">list</span>
+
+
+
             
             </td>
 
@@ -257,7 +306,454 @@
 
             
 
-            <td class="description last"><p>The message type.</p></td>
+            <td class="description last"><p>The arguments to create process. The first one is the full path of the executable,<br>                        followed by the arguments of the executable.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-515">line 515</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: The pid of the process, or -1 on error. </li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_EXCEED_MAX_NUM_PROCESS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_NOT_FILE</li><br>     </ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getWorkingDirectory"><span class="type-signature">&lt;static> </span>getWorkingDirectory(pid)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Retrieves the working directory of a process.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-596">line 596</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: The path of the working directory. </li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".isRunning"><span class="type-signature">&lt;static> </span>isRunning(pid)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Reports whether a process is currently running.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-656">line 656</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: True if the process is running, false otherwise. </li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".onquit"><span class="type-signature">&lt;static> </span>onquit(pid, callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Registers a handler for the onquit callback of a process.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process.</p></td>
         </tr>
 
     
@@ -269,23 +765,11 @@
 
             <td class="type">
             
-            </td>
+                
+<span class="param-type">function</span>
 
-            
 
-            
 
-            <td class="description last"><p>The callback function that handles the message.<br>                       Takes one argument, the message object.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
             
             </td>
 
@@ -293,7 +777,7 @@
 
             
 
-            <td class="description last"><p>Optional, the object containing the callback method, if any.<br>                       Default is null.</p></td>
+            <td class="description last"><p>The handler function.</p></td>
         </tr>
 
     
@@ -337,8 +821,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-159">line 159</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-637">line 637</a>
 			</li>
 		</ul>
 	</dd>
@@ -363,6 +847,17 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
 
     
 </dd>
@@ -371,7 +866,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="dispatchMessage"><span class="type-signature"></span>dispatchMessage(vulcanMessage)</h4>
+    <h4 class="name" id=".stderr"><span class="type-signature">&lt;static> </span>stderr(pid, callback)</h4>
     
     
 </dt>
@@ -379,7 +874,7 @@
 
     
     <div class="description">
-        <p>Dispatches a Vulcan message.</p>
+        <p>Registers up a standard-error handler for a process.</p>
     </div>
     
 
@@ -414,10 +909,16 @@
 
         <tr>
             
-                <td class="name"><code>vulcanMessage</code></td>
+                <td class="name"><code>pid</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
             
             </td>
 
@@ -425,1218 +926,7 @@
 
             
 
-            <td class="description last"><p>The message object.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-199">line 199</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getAppPath"><span class="type-signature"></span>getAppPath(targetSpecifier)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Retrieves the local install path of a CC application.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSpecifier</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The application specifier; for example &quot;indesign&quot;.</p>
-<pre class="prettyprint source"><code>   Note: In Windows 7 64-bit or Windows 8 64-bit system, some target applications (like Photoshop and Illustrator) have both 32-bit version
-   and 64-bit version. Therefore, we need to specify the version by this parameter with &quot;photoshop-70.032&quot; or &quot;photoshop-70.064&quot;. If you
-   installed Photoshop 32-bit and 64-bit on one Windows 64-bit system and invoke this interface with parameter &quot;photoshop-70.032&quot;, you may
-   receive wrong result.
-   The specifiers for Illustrator is &quot;illustrator-17.032&quot;, &quot;illustrator-17.064&quot;, &quot;illustrator-17&quot; and &quot;illustrator&quot;.
-
-   In other platforms there is no such issue, so we can use &quot;photoshop&quot; or &quot;photoshop-70&quot; as specifier.</code></pre></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-137">line 137</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The path string if the application is found, &quot;&quot; otherwise.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getEndPoints"><span class="type-signature"></span>getEndPoints()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Gets all available endpoints of the running Vulcan-enabled applications.</p>
-<p>Since 7.0.0</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-244">line 244</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The array of all available endpoints.<br>An example endpoint string:</p>
-<endPoint><br>  <appId>PHXS</appId><br>  <appVersion>16.1.0</appVersion><br></endPoint>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getPayload"><span class="type-signature"></span>getPayload(vulcanMessage)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Retrieves the message payload of a Vulcan message for the registered message listener callback function.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>vulcanMessage</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The message object.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-220">line 220</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A string containing the message payload.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getSelfEndPoint"><span class="type-signature"></span>getSelfEndPoint()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Gets the endpoint for itself.</p>
-<p>Since 7.0.0</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-257">line 257</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The endpoint string for itself.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="getTargetSpecifiers"><span class="type-signature"></span>getTargetSpecifiers()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Gets all available application specifiers on the local machine.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-32">line 32</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The array of all available application specifiers.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="isAppInstalled"><span class="type-signature"></span>isAppInstalled(targetSpecifier)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Checks whether a CC application is installed on the local machine.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSpecifier</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The application specifier; for example &quot;indesign&quot;.</p>
-<pre class="prettyprint source"><code>   Note: In Windows 7 64-bit or Windows 8 64-bit system, some target applications (like Photoshop and Illustrator) have both 32-bit version
-   and 64-bit version. Therefore, we need to specify the version by this parameter with &quot;photoshop-70.032&quot; or &quot;photoshop-70.064&quot;. If you
-   installed Photoshop 32-bit and 64-bit on one Windows 64-bit system and invoke this interface with parameter &quot;photoshop-70.032&quot;, you may
-   receive wrong result.
-   The specifiers for Illustrator is &quot;illustrator-17.032&quot;, &quot;illustrator-17.064&quot;, &quot;illustrator-17&quot; and &quot;illustrator&quot;.
-
-   In other platforms there is no such issue, so we can use &quot;photoshop&quot; or &quot;photoshop-70&quot; as specifier.</code></pre></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-110">line 110</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>True if the app is installed, false otherwise.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="isAppRunning"><span class="type-signature"></span>isAppRunning(targetSpecifier)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Checks whether a CC application is running on the local machine.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSpecifier</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The application specifier; for example &quot;indesign&quot;.</p>
-<pre class="prettyprint source"><code>   Note: In Windows 7 64-bit or Windows 8 64-bit system, some target applications (like Photoshop and Illustrator) have both 32-bit version
-   and 64-bit version. Therefore, we need to specify the version by this parameter with &quot;photoshop-70.032&quot; or &quot;photoshop-70.064&quot;. If you
-   installed Photoshop 32-bit and 64-bit on one Windows 64-bit system and invoke this interface with parameter &quot;photoshop-70.032&quot;, you may
-   receive wrong result.
-   The specifiers for Illustrator is &quot;illustrator-17.032&quot;, &quot;illustrator-17.064&quot;, &quot;illustrator-17&quot; and &quot;illustrator&quot;.
-
-   In other platforms there is no such issue, so we can use &quot;photoshop&quot; or &quot;photoshop-70&quot; as specifier.</code></pre></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-83">line 83</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>True if the app is running, false otherwise.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="launchApp"><span class="type-signature"></span>launchApp(targetSpecifier, focus, cmdLine)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Launches a CC application on the local machine, if it is not already running.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSpecifier</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The application specifier; for example &quot;indesign&quot;.</p>
-<pre class="prettyprint source"><code>   Note: In Windows 7 64-bit or Windows 8 64-bit system, some target applications (like Photoshop and Illustrator) have both 32-bit version
-   and 64-bit version. Therefore, we need to specify the version by this parameter with &quot;photoshop-70.032&quot; or &quot;photoshop-70.064&quot;. If you
-   installed Photoshop 32-bit and 64-bit on one Windows 64-bit system and invoke this interface with parameter &quot;photoshop-70.032&quot;, you may
-   receive wrong result.
-   The specifiers for Illustrator is &quot;illustrator-17.032&quot;, &quot;illustrator-17.064&quot;, &quot;illustrator-17&quot; and &quot;illustrator&quot;.
-
-   In other platforms there is no such issue, so we can use &quot;photoshop&quot; or &quot;photoshop-70&quot; as specifier.</code></pre></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>focus</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>True to launch in foreground, or false to launch in the background.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>cmdLine</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Optional, command-line parameters to supply to the launch command.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-54">line 54</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>True if the app can be launched, false otherwise.</p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="removeMessageListener"><span class="type-signature"></span>removeMessageListener(type, callback, obj)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Removes a registered message listener callback function for a Vulcan message.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The message type.</p></td>
+            <td class="description last"><p>The pid of the process.</p></td>
         </tr>
 
     
@@ -1648,23 +938,11 @@
 
             <td class="type">
             
-            </td>
+                
+<span class="param-type">function</span>
 
-            
 
-            
 
-            <td class="description last"><p>The callback function that was registered.<br>                       Takes one argument, the message object.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
             
             </td>
 
@@ -1672,7 +950,7 @@
 
             
 
-            <td class="description last"><p>Optional, the object containing the callback method, if any.<br>                       Default is null.</p></td>
+            <td class="description last"><p>The handler function for the standard error callback.</p></td>
         </tr>
 
     
@@ -1716,8 +994,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="Vulcan.js.html">Vulcan.js</a>,
-				 <a href="Vulcan.js.html#sunlight-1-line-181">line 181</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-558">line 558</a>
 			</li>
 		</ul>
 	</dd>
@@ -1742,6 +1020,661 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".stdin"><span class="type-signature">&lt;static> </span>stdin(pid, data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Writes data to the standard input of a process.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The data to write.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-577">line 577</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".stdout"><span class="type-signature">&lt;static> </span>stdout(pid, callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Registers a standard-output handler for a process.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The handler function for the standard output callback.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-539">line 539</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".terminate"><span class="type-signature">&lt;static> </span>terminate(pid)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Terminates a process.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-678">line 678</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".waitfor"><span class="type-signature">&lt;static> </span>waitfor(pid)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Waits for a process to quit.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The pid of the process.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-618">line 618</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_INVALID_PROCESS_ID </li></ul></p>
+</div>
+
+
+
+
+        
 
     
 </dd>
