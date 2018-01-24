@@ -31,13 +31,6 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
-				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
-				<ul class="dropdown-menu ">
-					<li><a href="cep.html">cep</a></li><li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
 					<li><a href="AgoraLib.html">AgoraLib</a></li><li><a href="ApiVersion.html">ApiVersion</a></li><li><a href="AppSkinInfo.html">AppSkinInfo</a></li><li><a href="ColorType.html">ColorType</a></li><li><a href="ContextMenuItemStatus.html">ContextMenuItemStatus</a></li><li><a href="CSEvent.html">CSEvent</a></li><li><a href="CSInterface.html">CSInterface</a></li><li><a href="Direction.html">Direction</a></li><li><a href="Extension.html">Extension</a></li><li><a href="GradientColor.html">GradientColor</a></li><li><a href="GradientStop.html">GradientStop</a></li><li><a href="HostCapabilities.html">HostCapabilities</a></li><li><a href="HostEnvironment.html">HostEnvironment</a></li><li><a href="MenuItemStatus.html">MenuItemStatus</a></li><li><a href="RGBColor.html">RGBColor</a></li><li><a href="Runtime.html">Runtime</a></li><li><a href="SystemPath.html">SystemPath</a></li><li><a href="UIColor.html">UIColor</a></li><li><a href="Version.html">Version</a></li><li><a href="VersionBound.html">VersionBound</a></li><li><a href="VersionRange.html">VersionRange</a></li><li><a href="Vulcan.html">Vulcan</a></li><li><a href="VulcanMessage.html">VulcanMessage</a></li>
@@ -47,7 +40,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#cep">cep</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
 				</ul>
 			</li>
 			
@@ -99,33 +92,15 @@
 
 
 /** CEPEngine - v8.0.0 */
-/** This is the JavaScript code for bridging to native functionality
- * See CEPEngine_extensions.cpp for implementation of native methods.
+/** This is the JavaScript code for bridging to native functionality (i.e. browsing desktop files and directories)
  *
- * Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD. */
+ * Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD.
+ */
 
-/*jslint vars: true, plusplus: true, devel: true, browser: true, nomen: true, indent: 4, forin: true, maxerr: 50, regexp: true, undefined: 0 */
-/*global define, native */
 
 /**
  * The entry point namespace for the CEPEngine interface
- * @namespace cep
- */
-/**
- * @namespace cep.fs
- *@memberOf cep
- */
-/**
- * @namespace cep.process
- *@memberOf cep
- */
-/**
- * @namespace cep.encoding
- *@memberOf cep
- */
-/**
- * @namespace cep.util
- *@memberOf cep
+ * @type {Array}
  */
 var cep;
 if (!cep) {
@@ -162,137 +137,140 @@ if (!cep.util) {
     // at the top of CEPEngine_extensions.cpp
 
     /**
-     * Numeric value for null error codes
-     * @constant cep.fs.NO_ERROR.
-     * @memberOf cep.fs
+     * The number returned for a corresponding error code
+     * @typedef {number} errCode
+     */
+    /**
+     * Numeric value for null error code
+     * @constant {errCode}
+     * @return {number} 0
      */
     cep.fs.NO_ERROR = 0;
 
     /**
-     * @constant cep.fs.ERR_UNKNOWN
-     * @memberOf cep.fs
      * Unknown error occurred.
+     * @constant {errCode}
+     * @return {number} 1
      */
     cep.fs.ERR_UNKNOWN = 1;
 
     /**
      * Invalid parameters passed to function.
-     * @constant cep.fs.ERR_INVALID_PARAMS
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 2
      */
     cep.fs.ERR_INVALID_PARAMS = 2;
 
     /**
      * File or directory was not found.
-     * @constant cep.fs.ERR_NOT_FOUND
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 3
      */
     cep.fs.ERR_NOT_FOUND = 3;
 
     /**
      * File or directory could not be read.
-     * @constant cep.fs.ERR_CANT_READ
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 4
      */
     cep.fs.ERR_CANT_READ = 4;
 
     /**
      * An unsupported encoding value was specified.
-     * @constant cep.fs.ERR_UNSUPPORTED_ENCODING
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 5
      */
     cep.fs.ERR_UNSUPPORTED_ENCODING = 5;
 
     /**
      * File could not be written.
-     * @constant cep.fs.ERR_CANT_WRITE
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 6
      */
     cep.fs.ERR_CANT_WRITE = 6;
 
     /**
      * Target directory is out of space. File could not be written.
-     * @constant cep.fs.ERR_OUT_OF_SPACE
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 7
      */
     cep.fs.ERR_OUT_OF_SPACE = 7;
 
     /**
      * Specified path does not point to a file.
-     * @constant cep.fs.ERR_NOT_FILE
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 8
      */
     cep.fs.ERR_NOT_FILE = 8;
 
     /**
      * Specified path does not point to a directory.
-     * @constant cep.fs.ERR_NOT_DIRECTORY
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 9
      */
     cep.fs.ERR_NOT_DIRECTORY = 9;
 
     /**
      * Specified file already exists.
-     * @constant cep.fs.ERR_FILE_EXISTS
-     * @memberOf cep.fs
+     * @constant {errCode}
+     * @return {number} 10
      */
     cep.fs.ERR_FILE_EXISTS = 10;
 
     /**
      * The maximum number of processes has been exceeded.
-     * @constant cep.process.ERR_EXCEED_MAX_NUM_PROCESS
-     * @memberOf cep.process
+    * @constant {errCode}
+     * @return {number} 101
      */
     cep.process.ERR_EXCEED_MAX_NUM_PROCESS = 101;
 
     /**
      * Invalid URL.
-     * @constant cep.util.ERR_INVALID_URL
-     * @memberOf cep.util
+     * @constant {errCode}
+     * @return {number} 201
      */
     cep.util.ERR_INVALID_URL = 201;
 
     /**
      * deprecated API.
-     * @constant cep.util.DEPRECATED_API
-     * @memberOf cep.util
+     * @constant {errCode}
+     * @return {number} 202
      */
     cep.util.DEPRECATED_API = 202;
 
     /**
      * UTF8 encoding type.
-     * @constant cep.encoding.UTF8
-     * @memberOf cep.encoding
-     * @returns {string} encoding type 
+     * @constant {string}
      */
     cep.encoding.UTF8 = "UTF-8";
 
     /**
      * Base64 encoding type.
-     * @constant cep.encoding.Base64
-     * @memberOf cep.encoding
-     * @returns {string} encoding type 
+     * @constant {string}
      */
     cep.encoding.Base64 = "Base64";
 
     /**
      * Displays the OS File Open dialog, allowing the user to select files or directories.
      *
-     * @param allowMultipleSelection {boolean} When true, multiple files/folders can be selected.
-     * @param chooseDirectory {boolean} When true, only folders can be selected. When false, only
+     * @param {boolean} allowMultipleSelection When true, multiple files/folders can be selected.
+     * @param {boolean} chooseDirectory When true, only folders can be selected. When false, only
      *        files can be selected.
-     * @param title {string} Title of the open dialog.
-     * @param initialPath {string} Initial path to display in the dialog. Pass NULL or "" to
+     * @param {string} title Title of the open dialog.
+     * @param {string} initialPath Initial path to display in the dialog. Pass NULL or "" to
      *        display the last path chosen.
-     * @param fileTypes {Array.&lt;string>} The file extensions (without the dot) for the types
+     * @param {string[]} fileTypes The file extensions (without the dot) for the types
      *      of files that can be selected. Ignored when chooseDirectory=true.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": An array of the full names of the selected files.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
+     * @example 
+     * // Example filetypes
+     *    var fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
      **/
     //    native function ShowOpenDialog();
     cep.fs.showOpenDialog = function (allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes) {
@@ -310,27 +288,29 @@ if (!cep.util) {
     /**
      * Displays the OS File Open dialog, allowing the user to select files or directories.
      *
-     * @param allowMultipleSelection {boolean} When true, multiple files/folders can be selected.
-     * @param chooseDirectory {boolean} When true, only folders can be selected. When false, only
+     * @param {boolean} allowMultipleSelection When true, multiple files/folders can be selected.
+     * @param {boolean} chooseDirectory When true, only folders can be selected. When false, only
      *        files can be selected.
-     * @param title {string} Title of the open dialog.
-     * @param initialPath {string} Initial path to display in the dialog. Pass NULL or "" to
+     * @param {string} title Title of the open dialog.
+     * @param {string} initialPath Initial path to display in the dialog. Pass NULL or "" to
      *        display the last path chosen.
-     * @param fileTypes {Array.&lt;string>} The file extensions (without the dot) for the types
+     * @param {string[]} fileTypes The file extensions (without the dot) for the types
      *      of files that can be selected. Ignored when chooseDirectory=true.
-     * @param friendlyFilePrefix {string} String to put in front of the extensions
+     * @param {string} friendlyFilePrefix String to put in front of the extensions
      *      of files that can be selected. Ignored when chooseDirectory=true. (win only)
-     *      For example: 
-     *          fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
-     *          friendlyFilePrefix = "Images (*.gif;*.jpg;*.jpeg;*.png;*.bmp;*.webp;*.svg)";
-     * @param prompt {string} String for OK button (mac only, default is "Open" on mac, "Open" or "Select Folder" on win).
+     * @param {string} prompt String for OK button (mac only, default is "Open" on mac, "Open" or "Select Folder" on win).
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": An array of the full names of the selected files.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
+     *
+     * @example 
+     * // Example filetypes and prefixes
+     *    var fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
+     *    var friendlyFilePrefix = "Images (*.gif;*.jpg;*.jpeg;*.png;*.bmp;*.webp;*.svg)";
      **/
     //    native function ShowOpenDialogEx();
     cep.fs.showOpenDialogEx = function (allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes,
@@ -350,25 +330,26 @@ if (!cep.util) {
     /**
      * Displays the OS File Save dialog, allowing the user to type in a file name.
      *
-     * @param title {string} Title of the save dialog.
-     * @param initialPath {string} Initial path to display in the dialog. Pass NULL or "" to
+     * @param {string} title Title of the save dialog.
+     * @param {string} initialPath Initial path to display in the dialog. Pass NULL or "" to
      *        display the last path chosen.
-     * @param fileTypes {Array.&lt;string>} The file extensions (without the dot) for the types
+     * @param {string[]} fileTypes The file extensions (without the dot) for the types
      *      of files that can be selected.
-     * @param defaultName {string} String to start with for the file name.
-     * @param friendlyFilePrefix {string} String to put in front of the extensions of files that can be selected. (win only)
-     *      For example: 
-     *          fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
-     *          friendlyFilePrefix = "Images (*.gif;*.jpg;*.jpeg;*.png;*.bmp;*.webp;*.svg)";
-     * @param prompt {string} String for Save button (mac only, default is "Save" on mac and win).
-     * @param nameFieldLabel {string} String displayed in front of the file name text field (mac only, "File name:" on win).
+     * @param {string} defaultName String to start with for the file name.
+     * @param {string} friendlyFilePrefix String to put in front of the extensions of files that can be selected. (win only)
+     * @param {string} prompt String for Save button (mac only, default is "Save" on mac and win).
+     * @param {string} nameFieldLabel String displayed in front of the file name text field (mac only, "File name:" on win).
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": The file path selected to save at or "" if canceled&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
+     * @example 
+     * // Example filetypes and prefixes
+     *          var fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
+     *          var friendlyFilePrefix = "Images (*.gif;*.jpg;*.jpeg;*.png;*.bmp;*.webp;*.svg)";
      **/
     //    native function ShowSaveDialogEx();
     cep.fs.showSaveDialogEx = function (title, initialPath, fileTypes, defaultName, friendlyFilePrefix, prompt, nameFieldLabel) {
@@ -386,9 +367,9 @@ if (!cep.util) {
     /**
      * Reads the contents of a folder.
      *
-     * @param path {string} The path of the folder to read.
+     * @param {string} path The path of the folder to read.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": An array of the names of the contained files (excluding '.' and '..'.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
@@ -410,9 +391,9 @@ if (!cep.util) {
     /**
      * Creates a new folder.
      *
-     * @param path {string} The path of the folder to create.
+     * @param {string} path The path of the folder to create.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -427,10 +408,10 @@ if (!cep.util) {
     /**
      * Renames a file or folder.
      *
-     * @param oldPath {string}  The old name of the file or folder.
-     * @param newPath {string}  The new name of the file or folder.
+     * @param {string} oldPath The old name of the file or folder.
+     * @param {string} newPath The new name of the file or folder.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -447,9 +428,9 @@ if (!cep.util) {
     /**
      * Reports whether an item is a file or folder.
      *
-     * @param path {string} The path of the file or folder.
+     * @param {string} path The path of the file or folder.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": An object with properties
      *          &lt;br>isFile (boolean)
      *          &lt;br>isDirectory (boolean)
@@ -485,11 +466,11 @@ if (!cep.util) {
     /**
      * Reads the entire contents of a file.
      *
-     * @param path {string}  The path of the file to read.
-     * @param encoding {string}  The encoding of the contents of file, one of
+     * @param {string} path The path of the file to read.
+     * @param {string} encoding The encoding of the contents of file, one of
      *      UTF8 (the default) or Base64.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": The file contents. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
@@ -514,12 +495,12 @@ if (!cep.util) {
     /**
      * Writes data to a file, replacing the file if it already exists.
      *
-     * @param path {string}  The path of the file to write.
-     * @param data {string}  The data to write to the file.
-     * @param encoding {string}  The encoding of the contents of file, one of
+     * @param {string} path The path of the file to write.
+     * @param {string} data The data to write to the file.
+     * @param {string} encoding  The encoding of the contents of file, one of
      *      UTF8 (the default) or Base64.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -538,10 +519,10 @@ if (!cep.util) {
     /**
      * Sets permissions for a file or folder.
      *
-     * @param path {string}  The path of the file or folder.
-     * @param mode {number}  The permissions in numeric format (for example, 0777).
+     * @param {string} path The path of the file or folder.
+     * @param {number} mode The permissions in numeric format (for example, 0777).
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -557,9 +538,9 @@ if (!cep.util) {
     /**
      * Deletes a file.
      *
-     * @param path {string}  The path of the file to delete.
+     * @param {string} path The path of the file to delete.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -583,10 +564,10 @@ if (!cep.util) {
     /**
      * Creates a process.
      *
-     * @param arguments {list} The arguments to create process. The first one is the full path of the executable,
+     * @param {list} arguments The arguments to create process. The first one is the full path of the executable,
      *                         followed by the arguments of the executable.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": The pid of the process, or -1 on error. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
@@ -611,10 +592,10 @@ if (!cep.util) {
     /**
      * Registers a standard-output handler for a process.
      *
-     * @param pid {int} The pid of the process.
-     * @param callback {function}  The handler function for the standard output callback.
+     * @param {number} pid The pid of the process.
+     * @param {function} callback The handler function for the standard output callback.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -630,10 +611,10 @@ if (!cep.util) {
     /**
      * Registers up a standard-error handler for a process.
      *
-     * @param pid {int} The pid of the process.
-     * @param callback {function}  The handler function for the standard error callback.
+     * @param {number} pid The pid of the process.
+     * @param {function} callback The handler function for the standard error callback.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -649,10 +630,10 @@ if (!cep.util) {
     /**
      * Writes data to the standard input of a process.
      *
-     * @param pid {int}  The pid of the process
-     * @param data {string} The data to write.
+     * @param {number} pid  The pid of the process
+     * @param {string} data The data to write.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -668,9 +649,9 @@ if (!cep.util) {
     /**
      * Retrieves the working directory of a process.
      *
-     * @param pid {int} The pid of the process.
+     * @param {number} pid The pid of the process.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": The path of the working directory. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
@@ -691,9 +672,9 @@ if (!cep.util) {
     /**
      * Waits for a process to quit.
      *
-     * @param pid {int} The pid of the process.
+     * @param {number} pid The pid of the process.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -709,10 +690,10 @@ if (!cep.util) {
     /**
      * Registers a handler for the onquit callback of a process.
      *
-     * @param pid {int}  The pid of the process.
-     * @param callback {function}  The handler function.
+     * @param {number} pid  The pid of the process.
+     * @param {function} callback The handler function.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -728,9 +709,9 @@ if (!cep.util) {
     /**
      * Reports whether a process is currently running.
      *
-     * @param pid {int} The pid of the process.
+     * @param {number} pid The pid of the process.
      *
-     * @return An object with these properties:
+     * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": True if the process is running, false otherwise. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
@@ -751,9 +732,9 @@ if (!cep.util) {
     /**
      * Terminates a process.
      *
-     * @param pid {int} The pid of the process
+     * @param {number} pid The pid of the process
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
@@ -802,18 +783,19 @@ if (!cep.util) {
     /**
      * Opens a page in the default system browser.
      *
-     * @param url {string} The URL of the page/file to open, or the email address.
-     * Must use HTTP/HTTPS/file/mailto. For example:
-     *  "http://www.adobe.com"
-     *  "https://github.com"
-     *  "file:///C:/log.txt"
-     *  "mailto:test@adobe.com"
+     * @param {string} url The URL of the page/file to open, or the email address.
+     * Must use HTTP/HTTPS/file/mailto.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
+     * @example
+     *  "http://www.adobe.com"
+     *  "https://github.com"
+     *  "file:///C:/log.txt"
+     *  "mailto:test@adobe.com"
      **/
     //    native function OpenURLInDefaultBrowser();
     cep.util.openURLInDefaultBrowser = function (url) {
@@ -836,9 +818,9 @@ if (!cep.util) {
      *
      * @deprecated since version 6.0.0
      *
-     * @param callback {function}  The handler function.
+     * @param {function} callback The handler function.
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
@@ -853,10 +835,10 @@ if (!cep.util) {
     /**
      * Stores the user's proxy credentials
      *
-     * @param username {string}  proxy username
-     * @param password {string}  proxy password
+     * @param {string} username proxy username
+     * @param {string} password proxy password
      *
-     * @return An object with this property:
+     * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
@@ -915,7 +897,7 @@ if (!cep.util) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Tue Jan 23rd 2018
+		on Wed Jan 24th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
