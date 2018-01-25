@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Adobe CEP8 API Class: ContextMenuItemStatus</title>
+	<title>Adobe CEP8 API Class: readdir</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -79,16 +79,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: ContextMenuItemStatus</h1>
+	<h1 class="page-title">Class: readdir</h1>
 <section>
 
 <header>
     
         <h2>
-        ContextMenuItemStatus
+        readdir
         </h2>
         
-            <div class="class-description"><p>ContextMenuItemStatus<br>Stores the status of the context menu item.</p></div>
+            <div class="class-description"><p>readdir<br>Reads the contents of a folder.</p></div>
         
     
 </header>
@@ -100,7 +100,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="ContextMenuItemStatus"><span class="type-signature"></span>new ContextMenuItemStatus(menuItemID, enabled, checked)</h4>
+    <h4 class="name" id="readdir"><span class="type-signature"></span>new readdir(path)</h4>
     
     
 </dt>
@@ -139,10 +139,16 @@
 
         <tr>
             
-                <td class="name"><code>menuItemID</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
             
             </td>
 
@@ -150,43 +156,7 @@
 
             
 
-            <td class="description last"><p>The menu item id.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>enabled</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>True if user wants to enable the menu item.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>checked</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>True if user wants to check the menu item.</p></td>
+            <td class="description last"><p>The path of the folder to read.</p></td>
         </tr>
 
     
@@ -201,13 +171,6 @@
 
 	
 
-	
-	<dt class="tag-since method-doc-label method-doc-details-label">Since:</dt>
-	<dd class="tag-since">
-		<ul class="dummy">
-			<li>5.2.0</li>
-		</ul>
-	</dd>
 	
 
 	
@@ -237,8 +200,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="CSInterface.js.html">CSInterface.js</a>,
-				 <a href="CSInterface.js.html#sunlight-1-line-436">line 436</a>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-334">line 334</a>
 			</li>
 		</ul>
 	</dd>
@@ -267,10 +230,23 @@
     
             
 <div class="param-desc">
-    <p>MenuItemStatus object.</p>
+    <p>An object with these properties:<br>     <ul><br>         <li>&quot;data&quot;: An array of the names of the contained files (excluding '.' and '..'.</li><br>         <li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_CANT_READ </li><br>         </ul></p>
 </div>
 
 
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
 
 
         
