@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="cep.html">cep</a></li><li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
+					<li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.encoding.convertion.html">cep.encoding.convertion</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
 				</ul>
 			</li>
 			
@@ -47,7 +47,29 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#chmodSetspermissionsforafileorfolder.">chmod
+Sets permissions for a file or folder.</a></li><li><a href="global.html#createProcessCreatesaprocess.">createProcess
+Creates a process.</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#deleteFileDeletesafile.">deleteFile
+Deletes a file.</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#getWorkingDirectoryRetrievestheworkingdirectoryofaprocess.">getWorkingDirectory
+Retrieves the working directory of a process.</a></li><li><a href="global.html#isRunningReportswhetheraprocessiscurrentlyrunning.">isRunning
+Reports whether a process is currently running.</a></li><li><a href="global.html#makedirCreatesanewfolder.">makedir
+Creates a new folder.</a></li><li><a href="global.html#onquitRegistersahandlerfortheonquitcallbackofaprocess.">onquit
+Registers a handler for the onquit callback of a process.</a></li><li><a href="global.html#openURLInDefaultBrowserOpensapageinthedefaultsystembrowser.">openURLInDefaultBrowser
+Opens a page in the default system browser.</a></li><li><a href="global.html#readdirReadsthecontentsofafolder.">readdir
+Reads the contents of a folder.</a></li><li><a href="global.html#readFileReadstheentirecontentsofafile.">readFile
+Reads the entire contents of a file.</a></li><li><a href="global.html#registerExtensionUnloadCallbackRegistersacallbackfunctionforextensionunload.Ifcalledmorethanonce,thelastcallbackthatissuccessfullyregisteredisused.">registerExtensionUnloadCallback
+Registers a callback function for extension unload. If called more than once,
+the last callback that is successfully registered is used.</a></li><li><a href="global.html#renameRenamesafileorfolder.">rename
+Renames a file or folder.</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#showSaveDialogExDisplaystheOSFileSavedialog,allowingtheusertotypeinafilename.">showSaveDialogEx
+Displays the OS File Save dialog, allowing the user to type in a file name.</a></li><li><a href="global.html#statReportswhetheranitemisafileorfolder.">stat
+Reports whether an item is a file or folder.</a></li><li><a href="global.html#stderrRegistersupastandard-errorhandlerforaprocess.">stderr
+Registers up a standard-error handler for a process.</a></li><li><a href="global.html#stdinWritesdatatothestandardinputofaprocess.">stdin
+Writes data to the standard input of a process.</a></li><li><a href="global.html#stdoutRegistersastandard-outputhandlerforaprocess.">stdout
+Registers a standard-output handler for a process.</a></li><li><a href="global.html#storeProxyCredentialsStorestheuser'sproxycredentials">storeProxyCredentials
+Stores the user's proxy credentials</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#terminateTerminatesaprocess.">terminate
+Terminates a process.</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li><li><a href="global.html#waitforWaitsforaprocesstoquit.">waitfor
+Waits for a process to quit.</a></li><li><a href="global.html#writeFileWritesdatatoafile,replacingthefileifitalreadyexists.">writeFile
+Writes data to a file, replacing the file if it already exists.</a></li>
 				</ul>
 			</li>
 			
@@ -85,8 +107,6 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="cep.html">cep</a>.</span>
-        
         encoding
         </h2>
         
@@ -97,6 +117,8 @@
 <article>
     <div class="container-overview">
     
+        
+            <div class="description"><p>Used for encoding and decoding files</p></div>
         
 
         
@@ -135,7 +157,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-36">line 36</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-37">line 37</a>
 			</li>
 		</ul>
 	</dd>
@@ -161,6 +183,13 @@
 
     
 
+    
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="namespaces.html#cep.encoding.convertion"><a href="cep.encoding.convertion.html">convertion</a></a></dt>
+            <dd></dd>
+        </dl>
     
 
     
@@ -176,10 +205,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Base64 encoding type.</p>
-    </div>
-    
 
     
 
@@ -210,77 +235,14 @@
 	
 
 	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
 		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-184">line 184</a>
-			</li>
+			<li>Base64</li>
 		</ul>
 	</dd>
 	
 
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id=".convertion">
-    <h4 id=".convertion"><span class="type-signature">&lt;static> </span>convertion<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>Encoding conversions.</p>
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
 
 
 	
@@ -289,7 +251,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-687">line 687</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-194">line 194</a>
 			</li>
 		</ul>
 	</dd>
@@ -316,10 +278,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>UTF8 encoding type.</p>
-    </div>
-    
 
     
 
@@ -350,6 +308,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>UTF-8</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -359,7 +324,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-176">line 176</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-187">line 187</a>
 			</li>
 		</ul>
 	</dd>
@@ -433,7 +398,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Tue Jan 23rd 2018
+		on Thu Feb 1st 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

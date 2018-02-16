@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="cep.html">cep</a></li><li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
+					<li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.encoding.convertion.html">cep.encoding.convertion</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
 				</ul>
 			</li>
 			
@@ -47,7 +47,29 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#chmodSetspermissionsforafileorfolder.">chmod
+Sets permissions for a file or folder.</a></li><li><a href="global.html#createProcessCreatesaprocess.">createProcess
+Creates a process.</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#deleteFileDeletesafile.">deleteFile
+Deletes a file.</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#getWorkingDirectoryRetrievestheworkingdirectoryofaprocess.">getWorkingDirectory
+Retrieves the working directory of a process.</a></li><li><a href="global.html#isRunningReportswhetheraprocessiscurrentlyrunning.">isRunning
+Reports whether a process is currently running.</a></li><li><a href="global.html#makedirCreatesanewfolder.">makedir
+Creates a new folder.</a></li><li><a href="global.html#onquitRegistersahandlerfortheonquitcallbackofaprocess.">onquit
+Registers a handler for the onquit callback of a process.</a></li><li><a href="global.html#openURLInDefaultBrowserOpensapageinthedefaultsystembrowser.">openURLInDefaultBrowser
+Opens a page in the default system browser.</a></li><li><a href="global.html#readdirReadsthecontentsofafolder.">readdir
+Reads the contents of a folder.</a></li><li><a href="global.html#readFileReadstheentirecontentsofafile.">readFile
+Reads the entire contents of a file.</a></li><li><a href="global.html#registerExtensionUnloadCallbackRegistersacallbackfunctionforextensionunload.Ifcalledmorethanonce,thelastcallbackthatissuccessfullyregisteredisused.">registerExtensionUnloadCallback
+Registers a callback function for extension unload. If called more than once,
+the last callback that is successfully registered is used.</a></li><li><a href="global.html#renameRenamesafileorfolder.">rename
+Renames a file or folder.</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#showSaveDialogExDisplaystheOSFileSavedialog,allowingtheusertotypeinafilename.">showSaveDialogEx
+Displays the OS File Save dialog, allowing the user to type in a file name.</a></li><li><a href="global.html#statReportswhetheranitemisafileorfolder.">stat
+Reports whether an item is a file or folder.</a></li><li><a href="global.html#stderrRegistersupastandard-errorhandlerforaprocess.">stderr
+Registers up a standard-error handler for a process.</a></li><li><a href="global.html#stdinWritesdatatothestandardinputofaprocess.">stdin
+Writes data to the standard input of a process.</a></li><li><a href="global.html#stdoutRegistersastandard-outputhandlerforaprocess.">stdout
+Registers a standard-output handler for a process.</a></li><li><a href="global.html#storeProxyCredentialsStorestheuser'sproxycredentials">storeProxyCredentials
+Stores the user's proxy credentials</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#terminateTerminatesaprocess.">terminate
+Terminates a process.</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li><li><a href="global.html#waitforWaitsforaprocesstoquit.">waitfor
+Waits for a process to quit.</a></li><li><a href="global.html#writeFileWritesdatatoafile,replacingthefileifitalreadyexists.">writeFile
+Writes data to a file, replacing the file if it already exists.</a></li>
 				</ul>
 			</li>
 			
@@ -85,8 +107,6 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="cep.html">cep</a>.</span>
-        
         fs
         </h2>
         
@@ -97,6 +117,8 @@
 <article>
     <div class="container-overview">
     
+        
+            <div class="description"><p>Used for communicating with the native file system</p></div>
         
 
         
@@ -135,7 +157,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-28">line 28</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-25">line 25</a>
 			</li>
 		</ul>
 	</dd>
@@ -176,10 +198,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>File or directory could not be read.</p>
-    </div>
-    
 
     
 
@@ -210,6 +228,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>4</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -219,7 +244,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-106">line 106</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-117">line 117</a>
 			</li>
 		</ul>
 	</dd>
@@ -246,10 +271,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>File could not be written.</p>
-    </div>
-    
 
     
 
@@ -280,6 +301,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>6</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -289,7 +317,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-120">line 120</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-131">line 131</a>
 			</li>
 		</ul>
 	</dd>
@@ -316,10 +344,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Specified file already exists.</p>
-    </div>
-    
 
     
 
@@ -350,6 +374,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>10</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -359,7 +390,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-148">line 148</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-159">line 159</a>
 			</li>
 		</ul>
 	</dd>
@@ -386,10 +417,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Invalid parameters passed to function.</p>
-    </div>
-    
 
     
 
@@ -420,6 +447,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>2</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -429,7 +463,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-92">line 92</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-103">line 103</a>
 			</li>
 		</ul>
 	</dd>
@@ -456,10 +490,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Specified path does not point to a directory.</p>
-    </div>
-    
 
     
 
@@ -490,6 +520,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>9</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -499,7 +536,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-141">line 141</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-152">line 152</a>
 			</li>
 		</ul>
 	</dd>
@@ -526,10 +563,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Specified path does not point to a file.</p>
-    </div>
-    
 
     
 
@@ -560,6 +593,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>8</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -569,7 +609,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-134">line 134</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-145">line 145</a>
 			</li>
 		</ul>
 	</dd>
@@ -596,10 +636,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>File or directory was not found.</p>
-    </div>
-    
 
     
 
@@ -630,6 +666,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>3</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -639,7 +682,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-99">line 99</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-110">line 110</a>
 			</li>
 		</ul>
 	</dd>
@@ -666,9 +709,78 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>Target directory is out of space. File could not be written.</p>
-    </div>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>7</li>
+		</ul>
+	</dd>
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-138">line 138</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ERR_UNKNOWN">
+    <h4 id=".ERR_UNKNOWN"><span class="type-signature">&lt;static, constant> </span>ERR_UNKNOWN<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
     
 
     
@@ -700,6 +812,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>1</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -709,7 +828,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-127">line 127</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-96">line 96</a>
 			</li>
 		</ul>
 	</dd>
@@ -736,10 +855,6 @@
 </dt>
 <dd>
     
-    <div class="description">
-        <p>An unsupported encoding value was specified.</p>
-    </div>
-    
 
     
 
@@ -770,6 +885,13 @@
 	
 
 	
+	<dt class="tag-default method-doc-label method-doc-details-label">Default Value:</dt>
+	<dd class="tag-default">
+		<ul class="dummy">
+			<li>5</li>
+		</ul>
+	</dd>
+	
 
 
 
@@ -779,7 +901,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-113">line 113</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-124">line 124</a>
 			</li>
 		</ul>
 	</dd>
@@ -799,16 +921,12 @@
         
             
 <hr>
-<dt class="name" id=".NO_ERROR.">
-    <h4 id=".NO_ERROR."><span class="type-signature">&lt;static, constant> </span>NO_ERROR.<span class="type-signature"></span></h4>
+<dt class="name" id=".NO_ERROR">
+    <h4 id=".NO_ERROR"><span class="type-signature">&lt;static, constant> </span>NO_ERROR<span class="type-signature"></span></h4>
 
     
 </dt>
 <dd>
-    
-    <div class="description">
-        <p>Numeric value for null error codes</p>
-    </div>
     
 
     
@@ -849,7 +967,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-78">line 78</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-89">line 89</a>
 			</li>
 		</ul>
 	</dd>
@@ -876,982 +994,13 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".chmod"><span class="type-signature">&lt;static> </span>chmod(path, mode)</h4>
+    <h4 class="name" id=".showOpenDialogDisplaystheOSFileOpendialog,allowingtheusertoselectfilesordirectories."><span class="type-signature">&lt;static> </span>showOpenDialog
+Displays the OS File Open dialog, allowing the user to select files or directories.(allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes)</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>Sets permissions for a file or folder.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the file or folder.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>mode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The permissions in numeric format (for example, 0777).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-466">line 466</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_CANT_WRITE </li></ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".deleteFile"><span class="type-signature">&lt;static> </span>deleteFile(path)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Deletes a file.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the file to delete.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-486">line 486</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_NOT_FILE </li></ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".makedir"><span class="type-signature">&lt;static> </span>makedir(path)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates a new folder.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the folder to create.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-336">line 336</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS</li></ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".readdir"><span class="type-signature">&lt;static> </span>readdir(path)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Reads the contents of a folder.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the folder to read.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-315">line 315</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: An array of the names of the contained files (excluding '.' and '..'.</li><br>         <li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_CANT_READ </li></ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".readFile"><span class="type-signature">&lt;static> </span>readFile(path, encoding)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Reads the entire contents of a file.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the file to read.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>encoding</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The encoding of the contents of file, one of<br>     UTF8 (the default) or Base64.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-418">line 418</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: The file contents. </li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_CANT_READ<br>         <br>ERR_UNSUPPORTED_ENCODING </li><br>     </ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".rename"><span class="type-signature">&lt;static> </span>rename(oldPath, newPath)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Renames a file or folder.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>oldPath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The old name of the file or folder.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>newPath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The new name of the file or folder.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-356">line 356</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND<br>         <br>ERR_FILE_EXISTS </li></ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".showOpenDialog"><span class="type-signature">&lt;static> </span>showOpenDialog(allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Displays the OS File Open dialog, allowing the user to select files or directories.</p>
-    </div>
     
 
     
@@ -2043,7 +1192,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-212">line 212</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-196">line 196</a>
 			</li>
 		</ul>
 	</dd>
@@ -2072,13 +1221,50 @@
     
             
 <div class="param-desc">
-    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: An array of the full names of the selected files.</li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS </li><br>     </ul></p>
+    <p>An object with these properties:<br>     <ul><br>         <li>&quot;data&quot;: An array of the full names of the selected files.</li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS </li><br>     </ul></p>
 </div>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// Display images chosen from showOpenDialog() in &lt;img&gt; tags
+
+   var cepEngine = window.cep.fs,
+       $imgBttn = $(&#x27;button&#x27;),
+       $imgDiv = $(&#x27;.results&#x27;), 
+       fileTypes = [&quot;gif&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;webp&quot;, &quot;svg&quot;],
+       choices = cepEngine.showOpenDialog(true, false, &#x27;Open References&#x27;, &#x27;&#x27;, fileTypes),
+       images = choices.data; // The array of files selected by the user
+   function openImages() {
+     if (images.length) {
+         for (var i = 0; i &lt; images.length; i++) {
+              var imgurl = images[i];
+              $imgDiv.append(&quot;&lt;img src=&#x27;&quot; + imgurl + &quot;&#x27;/&gt;&quot;);
+          }
+      } else {
+          return false;
+      }
+  }
+  $imgBttn.click(openImages);</pre>
+
 
     
 </dd>
@@ -2087,16 +1273,13 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".showOpenDialogEx"><span class="type-signature">&lt;static> </span>showOpenDialogEx(allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes, friendlyFilePrefix, prompt)</h4>
+    <h4 class="name" id=".showOpenDialogExDisplaystheOSFileOpendialog,allowingtheusertoselectfilesordirectories."><span class="type-signature">&lt;static> </span>showOpenDialogEx
+Displays the OS File Open dialog, allowing the user to select files or directories.(allowMultipleSelection, chooseDirectory, title, initialPath, fileTypes, friendlyFilePrefix, prompt)</h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>Displays the OS File Open dialog, allowing the user to select files or directories.</p>
-    </div>
     
 
     
@@ -2267,7 +1450,7 @@
 
             
 
-            <td class="description last"><p>String to put in front of the extensions<br>     of files that can be selected. Ignored when chooseDirectory=true. (win only)<br>     For example:<br>         fileTypes = [&quot;gif&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;webp&quot;, &quot;svg&quot;];<br>         friendlyFilePrefix = &quot;Images (<em>.gif;</em>.jpg;<em>.jpeg;</em>.png;<em>.bmp;</em>.webp;*.svg)&quot;;</p></td>
+            <td class="description last"><p>String to put in front of the extensions<br>     of files that can be selected. Ignored when chooseDirectory=true. (win only)</p></td>
         </tr>
 
     
@@ -2336,7 +1519,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-250">line 250</a>
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-252">line 252</a>
 			</li>
 		</ul>
 	</dd>
@@ -2370,647 +1553,45 @@
 
 
 
-
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
         
+<span class="param-type">object</span>
 
-    
-</dd>
 
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".showSaveDialogEx"><span class="type-signature">&lt;static> </span>showSaveDialogEx(title, initialPath, fileTypes, defaultName, friendlyFilePrefix, prompt, nameFieldLabel)</h4>
-    
-    
-</dt>
-<dd>
 
-    
-    <div class="description">
-        <p>Displays the OS File Save dialog, allowing the user to type in a file name.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>title</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Title of the save dialog.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>initialPath</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Initial path to display in the dialog. Pass NULL or &quot;&quot; to<br>       display the last path chosen.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>fileTypes</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;string></span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The file extensions (without the dot) for the types<br>     of files that can be selected.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>defaultName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>String to start with for the file name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>friendlyFilePrefix</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>String to put in front of the extensions of files that can be selected. (win only)<br>     For example:<br>         fileTypes = [&quot;gif&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;webp&quot;, &quot;svg&quot;];<br>         friendlyFilePrefix = &quot;Images (<em>.gif;</em>.jpg;<em>.jpeg;</em>.png;<em>.bmp;</em>.webp;*.svg)&quot;;</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>prompt</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>String for Save button (mac only, default is &quot;Save&quot; on mac and win).</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>nameFieldLabel</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>String displayed in front of the file name text field (mac only, &quot;File name:&quot; on win).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-288">line 288</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
+    </dd>
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: The file path selected to save at or &quot;&quot; if canceled</li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS </li><br>     </ul></p>
-</div>
-
-
-
-
         
 
     
-</dd>
-
+        <h5>Example</h5>
         
-            
-<hr>
-<dt>
-    <h4 class="name" id=".stat"><span class="type-signature">&lt;static> </span>stat(path)</h4>
-    
-    
-</dt>
-<dd>
+    <pre class="sunlight-highlight-javascript">// Example filetypes and prefixes
+   var cepEngine = window.cep.fs,
+       $imgBttn = $(&#x27;button&#x27;),
+       $imgDiv = $(&#x27;.results&#x27;), 
+     fileTypes = [&quot;gif&quot;, &quot;jpg&quot;, &quot;jpeg&quot;, &quot;png&quot;, &quot;bmp&quot;, &quot;webp&quot;, &quot;svg&quot;],
+     friendlyFilePrefix = &quot;Images (*.gif;*.jpg;*.jpeg;*.png;*.bmp;*.webp;*.svg)&quot;,
+     choices = cepEngine.showOpenDialogEx(true, false, &#x27;Open References&#x27;, &#x27;&#x27;, fileTypes, friendlyFilePrefix),
+     images = choices.data; // The array of files selected by the user
+   function openImages() {
+     if (images.length) {
+         for (var i = 0; i &lt; images.length; i++) {
+              var imgurl = images[i];
+              $imgDiv.append(&quot;&lt;img src=&#x27;&quot; + imgurl + &quot;&#x27;/&gt;&quot;);
+          }
+      } else {
+          return false;
+      }
+  }
+  $imgBttn.click(openImages);</pre>
 
-    
-    <div class="description">
-        <p>Reports whether an item is a file or folder.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the file or folder.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-380">line 380</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with these properties:<br>     <ul><li>&quot;data&quot;: An object with properties<br>         <br>isFile (boolean)<br>         <br>isDirectory (boolean)<br>         <br>mtime (modification DateTime) </li><br>         <li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_NOT_FOUND  </li><br>     </ul></p>
-</div>
-
-
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".writeFile"><span class="type-signature">&lt;static> </span>writeFile(path, data, encoding)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Writes data to a file, replacing the file if it already exists.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The path of the file to write.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The data to write to the file.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>encoding</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The encoding of the contents of file, one of<br>     UTF8 (the default) or Base64.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
-				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-446">line 446</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS<br>         <br>ERR_UNSUPPORTED_ENCODING<br>         <br>ERR_CANT_WRITE<br>         <br>ERR_OUT_OF_SPACE </li></ul></p>
-</div>
-
-
-
-
-        
 
     
 </dd>
@@ -3070,7 +1651,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Tue Jan 23rd 2018
+		on Thu Feb 1st 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

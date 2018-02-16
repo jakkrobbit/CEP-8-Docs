@@ -37,9 +37,7 @@
 Used for encoding and decoding files</a></li><li><a href="cep.fs%250AUsed%2520for%2520communicating%2520with%2520the%2520native%2520file%2520system.html">cep.fs
 Used for communicating with the native file system</a></li><li><a href="cep.process%250AUsed%2520for%2520reading%2520and%2520initiating%2520processes.html">cep.process
 Used for reading and initiating processes</a></li><li><a href="cep.util%250AUsed%2520to%2520open%2520links%2520and%2520registered%2520API.html">cep.util
-Used to open links and registered API</a></li><li><a href="cep%250AThe%2520primary%2520namespace%2520for%2520the%2520CEP%2520engine.%250AMust%2520be%2520called%2520on%2520the%2520scope%2520on%2520the%2520extension,%2520primarily%2520the%2520window.html">cep
-The primary namespace for the CEP engine.
-Must be called on the scope on the extension, primarily the window</a></li>
+Used to open links and registered API</a></li>
 				</ul>
 			</li>
 			
@@ -132,33 +130,23 @@ Writes data to a file, replacing the file if it already exists.</a></li>
  */
 
 /**
- * @namespace cep
- * The primary namespace for the CEP engine.
- * Must be called on the scope on the extension, primarily the window
- * @example
- * window.cep.namespace.someMethod();
- */
-/**
  * @namespace cep.fs
  * Used for communicating with the native file system
- * @memberof cep
  */
+
 /**
  * @namespace cep.process
  * Used for reading and initiating processes
- * @memberof cep
  */
 
 /**
  * @namespace cep.encoding
  * Used for encoding and decoding files
- * @memberof cep
  */
 
 /**
  * @namespace cep.util
  * Used to open links and registered API
- * @memberof cep
  */
 
 var cep;
@@ -197,128 +185,112 @@ if (!cep.util) {
     // at the top of CEPEngine_extensions.cpp
 
     /**
-     * @constant cep.fs.NO_ERROR
-     * Numeric value for null error code
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.NO_ERROR = 0;
 
     /**
-     * @constant cep.fs.ERR_UNKNOWN
-     * Unknown error occurred.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_UNKNOWN = 1;
 
     /**
-     * @constant cep.fs.ERR_INVALID_PARAMS
-     * Invalid parameters passed to function.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_INVALID_PARAMS = 2;
 
     /**
-     * @constant cep.fs.ERR_NOT_FOUND
-     * File or directory was not found.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_FOUND = 3;
 
     /**
-     * @constant cep.fs.ERR_CANT_READ
-     * File or directory could not be read.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_CANT_READ = 4;
 
     /**
-     * @constant cep.fs.ERR_UNSUPPORTED_ENCODING
-     * An unsupported encoding value was specified.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_UNSUPPORTED_ENCODING = 5;
 
     /**
-     * @constant cep.fs.ERR_CANT_WRITE
-     * File could not be written.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_CANT_WRITE = 6;
 
     /**
-     * @constant cep.fs.ERR_OUT_OF_SPACE
-     * Target directory is out of space. File could not be written.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_OUT_OF_SPACE = 7;
 
     /**
-     * @constant cep.fs.ERR_NOT_FILE
-     * Specified path does not point to a file.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_FILE = 8;
 
     /**
-     * @constant cep.fs.ERR_NOT_DIRECTORY
-     * Specified path does not point to a directory.
+     * @constant
      * @default
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_DIRECTORY = 9;
 
     /**
-     * @constant cep.fs.ERR_FILE_EXISTS
-     * Specified file already exists.
+     * @constant
      * @default
      * @memberof cep.fs                       
      */
     cep.fs.ERR_FILE_EXISTS = 10;
 
     /**
-     * @constant cep.process.ERR_EXCEED_MAX_NUM_PROCESS
-     * The maximum number of processes has been exceeded.
+     * @constant
      * @default
      * @memberof cep.process
      */
     cep.process.ERR_EXCEED_MAX_NUM_PROCESS = 101;
 
     /**
-     * @constant cep.util.ERR_INVALID_URL
-     * Invalid URL.
+     * @constant
      * @default
      * @memberof cep.process                      
      */
     cep.util.ERR_INVALID_URL = 201;
 
     /**
-     * @constant cep.util.DEPRECATED_API
-     * Deprecated API.
+     * @constant
      * @default
      * @memberof cep.util           
      */
     cep.util.DEPRECATED_API = 202;
 
     /**
-     * @constant cep.encoding.UTF8
-     * UTF8 encoding type.
+     * @constant
      * @default
      * @memberof cep.encoding
      */
     cep.encoding.UTF8 = "UTF-8";
 
     /**
-     * @constant cep.encoding.Base64
-     * Base64 encoding type.
+     * @constant
      * @default
      * @memberof cep.encoding
      */
@@ -1070,7 +1042,7 @@ if (!cep.util) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Thu Feb 1st 2018
+		on Fri Feb 16th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
