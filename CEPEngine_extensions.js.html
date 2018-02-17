@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.encoding.convertion.html">cep.encoding.convertion</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
+					<li><a href="cep.html">cep</a></li><li><a href="cep.encoding.html">cep.encoding</a></li><li><a href="cep.encoding.convertion.html">cep.encoding.convertion</a></li><li><a href="cep.fs.html">cep.fs</a></li><li><a href="cep.process.html">cep.process</a></li><li><a href="cep.util.html">cep.util</a></li>
 				</ul>
 			</li>
 			
@@ -105,7 +105,7 @@
 
 /**
  * The method used for initializing the CEP engine. Must be called on the scope (ex. window.cep.fs).
- * @namespace cep.fs
+ * @namespace cep
  */
 
 /**
@@ -412,6 +412,7 @@ if (!cep.util) {
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
+     *      @memberof cep.fs
      * @example 
      * // Example filetypes and prefixes
      *          var fileTypes = ["gif", "jpg", "jpeg", "png", "bmp", "webp", "svg"];
@@ -445,6 +446,7 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_CANT_READ &lt;/li>
      *          &lt;/ul>
+     *          @memberof cep.fs
      **/
     //    native function ReadDir();
     cep.fs.readdir = function (path) {
@@ -466,6 +468,7 @@ if (!cep.util) {
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
+     *         @memberof cep.fs
      **/
     //     native function MakeDir();
     cep.fs.makedir = function (path) {
@@ -478,7 +481,6 @@ if (!cep.util) {
      * @function
      * @param {string} oldPath The old name of the file or folder.
      * @param {string} newPath The new name of the file or folder.
-     *
      * @return {object} An object with this property:
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
@@ -486,6 +488,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_FILE_EXISTS &lt;/li>&lt;/ul>
+     * @memberof cep.fs
      **/
     //     native function Rename();
     cep.fs.rename = function (oldPath, newPath) {
@@ -497,7 +500,6 @@ if (!cep.util) {
      * Reports whether an item is a file or folder.
      * @function
      * @param {string} path The path of the file or folder.
-     *
      * @return {object} An object with these properties:
      *      &lt;ul>&lt;li>"data": An object with properties
      *          &lt;br>isFile (boolean)
@@ -509,6 +511,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_NOT_FOUND  &lt;/li>
      *      &lt;/ul>
+     * @memberof cep.fs
      **/
     //    native function IsDirectory();
     //    native function GetFileModificationTime();
@@ -548,6 +551,7 @@ if (!cep.util) {
      *          &lt;br>ERR_CANT_READ
      *          &lt;br>ERR_UNSUPPORTED_ENCODING &lt;/li>
      *      &lt;/ul>
+     *      @memberof cep.fs
      **/
     //    native function ReadFile();
     cep.fs.readFile = function (path, encoding) {
@@ -596,6 +600,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_CANT_WRITE &lt;/li>&lt;/ul>
+     *          @memberof cep
      **/
     //    native function SetPosixPermissions();
     cep.fs.chmod = function (path, mode) {
@@ -615,6 +620,7 @@ if (!cep.util) {
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_NOT_FILE &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function DeleteFileOrDirectory();
     //    native function IsDirectory();
@@ -645,6 +651,7 @@ if (!cep.util) {
      *          &lt;br>ERR_NOT_FOUND
      *          &lt;br>ERR_NOT_FILE&lt;/li>
      *      &lt;/ul>
+     *      @memberof cep.process
      **/
     //    native function CreateProcess();
     cep.process.createProcess = function () {
@@ -669,6 +676,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function SetupStdOutHandler();
     cep.process.stdout = function (pid, callback) {
@@ -688,6 +696,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function SetupStdErrHandler();
     cep.process.stderr = function (pid, callback) {
@@ -707,6 +716,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function WriteStdIn();
     cep.process.stdin = function (pid, data) {
@@ -726,6 +736,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function GetWorkingDirectory();
     cep.process.getWorkingDirectory = function (pid) {
@@ -748,6 +759,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function WaitFor();
     cep.process.waitfor = function (pid) {
@@ -767,6 +779,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function OnQuit();
     cep.process.onquit = function (pid, callback) {
@@ -786,6 +799,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function IsRunning();
     cep.process.isRunning = function (pid) {
@@ -808,6 +822,7 @@ if (!cep.util) {
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS
      *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
+     *          @memberof cep.process
      **/
     //    native function Terminate();
     cep.process.terminate = function (pid) {
@@ -896,6 +911,7 @@ if (!cep.util) {
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_UNKNOWN
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
+     *          @memberof cep.util
      * @example
      *  "http://www.adobe.com"
      *  "https://github.com"
@@ -929,6 +945,7 @@ if (!cep.util) {
      *      &lt;ul>&lt;li>"err": The status of the operation, one of:
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
+     *          @memberof cep.util
      **/
     //    native function RegisterExtensionUnloadCallback();
     cep.util.registerExtensionUnloadCallback = function (callback) {
@@ -948,6 +965,7 @@ if (!cep.util) {
      *          &lt;br>NO_ERROR
      *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
      *      &lt;/ul>
+     *      @memberof cep.util
      **/
     //    native function StoreProxyCredentials();
     cep.util.storeProxyCredentials = function (username, password) {

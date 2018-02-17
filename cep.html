@@ -47,29 +47,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#chmodSetspermissionsforafileorfolder.">chmod
-Sets permissions for a file or folder.</a></li><li><a href="global.html#createProcessCreatesaprocess.">createProcess
-Creates a process.</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#deleteFileDeletesafile.">deleteFile
-Deletes a file.</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#getWorkingDirectoryRetrievestheworkingdirectoryofaprocess.">getWorkingDirectory
-Retrieves the working directory of a process.</a></li><li><a href="global.html#isRunningReportswhetheraprocessiscurrentlyrunning.">isRunning
-Reports whether a process is currently running.</a></li><li><a href="global.html#makedirCreatesanewfolder.">makedir
-Creates a new folder.</a></li><li><a href="global.html#onquitRegistersahandlerfortheonquitcallbackofaprocess.">onquit
-Registers a handler for the onquit callback of a process.</a></li><li><a href="global.html#openURLInDefaultBrowserOpensapageinthedefaultsystembrowser.">openURLInDefaultBrowser
-Opens a page in the default system browser.</a></li><li><a href="global.html#readdirReadsthecontentsofafolder.">readdir
-Reads the contents of a folder.</a></li><li><a href="global.html#readFileReadstheentirecontentsofafile.">readFile
-Reads the entire contents of a file.</a></li><li><a href="global.html#registerExtensionUnloadCallbackRegistersacallbackfunctionforextensionunload.Ifcalledmorethanonce,thelastcallbackthatissuccessfullyregisteredisused.">registerExtensionUnloadCallback
-Registers a callback function for extension unload. If called more than once,
-the last callback that is successfully registered is used.</a></li><li><a href="global.html#renameRenamesafileorfolder.">rename
-Renames a file or folder.</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#showSaveDialogExDisplaystheOSFileSavedialog,allowingtheusertotypeinafilename.">showSaveDialogEx
-Displays the OS File Save dialog, allowing the user to type in a file name.</a></li><li><a href="global.html#statReportswhetheranitemisafileorfolder.">stat
-Reports whether an item is a file or folder.</a></li><li><a href="global.html#stderrRegistersupastandard-errorhandlerforaprocess.">stderr
-Registers up a standard-error handler for a process.</a></li><li><a href="global.html#stdinWritesdatatothestandardinputofaprocess.">stdin
-Writes data to the standard input of a process.</a></li><li><a href="global.html#stdoutRegistersastandard-outputhandlerforaprocess.">stdout
-Registers a standard-output handler for a process.</a></li><li><a href="global.html#storeProxyCredentialsStorestheuser'sproxycredentials">storeProxyCredentials
-Stores the user's proxy credentials</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#terminateTerminatesaprocess.">terminate
-Terminates a process.</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li><li><a href="global.html#waitforWaitsforaprocesstoquit.">waitfor
-Waits for a process to quit.</a></li><li><a href="global.html#writeFileWritesdatatoafile,replacingthefileifitalreadyexists.">writeFile
-Writes data to a file, replacing the file if it already exists.</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
 				</ul>
 			</li>
 			
@@ -118,7 +96,7 @@ Writes data to a file, replacing the file if it already exists.</a></li>
     <div class="container-overview">
     
         
-            <div class="description"><p>The primary namespace for the CEP engine. Must be called on the scope on the extension, primarily the window.</p></div>
+            <div class="description"><p>The method used for initializing the CEP engine. Must be called on the scope (ex. window.cep.fs).</p></div>
         
 
         
@@ -169,16 +147,6 @@ Writes data to a file, replacing the file if it already exists.</a></li>
 
 	
 </dl>
-
-
-        
-            <h3>Example</h3>
-            
-    <pre class="sunlight-highlight-javascript">// Calling CEP engine methods on the window
-window.cep.fs.someMethod();
-window.cep.process.someMethod();
-window.cep.encoding.someMethod();
-window.cep.util.someMethod();</pre>
 
 
         
@@ -267,7 +235,7 @@ window.cep.util.someMethod();</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Thu Feb 1st 2018
+		on Sat Feb 17th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
