@@ -47,29 +47,7 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#chmodSetspermissionsforafileorfolder.">chmod
-Sets permissions for a file or folder.</a></li><li><a href="global.html#createProcessCreatesaprocess.">createProcess
-Creates a process.</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#deleteFileDeletesafile.">deleteFile
-Deletes a file.</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#getWorkingDirectoryRetrievestheworkingdirectoryofaprocess.">getWorkingDirectory
-Retrieves the working directory of a process.</a></li><li><a href="global.html#isRunningReportswhetheraprocessiscurrentlyrunning.">isRunning
-Reports whether a process is currently running.</a></li><li><a href="global.html#makedirCreatesanewfolder.">makedir
-Creates a new folder.</a></li><li><a href="global.html#onquitRegistersahandlerfortheonquitcallbackofaprocess.">onquit
-Registers a handler for the onquit callback of a process.</a></li><li><a href="global.html#openURLInDefaultBrowserOpensapageinthedefaultsystembrowser.">openURLInDefaultBrowser
-Opens a page in the default system browser.</a></li><li><a href="global.html#readdirReadsthecontentsofafolder.">readdir
-Reads the contents of a folder.</a></li><li><a href="global.html#readFileReadstheentirecontentsofafile.">readFile
-Reads the entire contents of a file.</a></li><li><a href="global.html#registerExtensionUnloadCallbackRegistersacallbackfunctionforextensionunload.Ifcalledmorethanonce,thelastcallbackthatissuccessfullyregisteredisused.">registerExtensionUnloadCallback
-Registers a callback function for extension unload. If called more than once,
-the last callback that is successfully registered is used.</a></li><li><a href="global.html#renameRenamesafileorfolder.">rename
-Renames a file or folder.</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#showSaveDialogExDisplaystheOSFileSavedialog,allowingtheusertotypeinafilename.">showSaveDialogEx
-Displays the OS File Save dialog, allowing the user to type in a file name.</a></li><li><a href="global.html#statReportswhetheranitemisafileorfolder.">stat
-Reports whether an item is a file or folder.</a></li><li><a href="global.html#stderrRegistersupastandard-errorhandlerforaprocess.">stderr
-Registers up a standard-error handler for a process.</a></li><li><a href="global.html#stdinWritesdatatothestandardinputofaprocess.">stdin
-Writes data to the standard input of a process.</a></li><li><a href="global.html#stdoutRegistersastandard-outputhandlerforaprocess.">stdout
-Registers a standard-output handler for a process.</a></li><li><a href="global.html#storeProxyCredentialsStorestheuser'sproxycredentials">storeProxyCredentials
-Stores the user's proxy credentials</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#terminateTerminatesaprocess.">terminate
-Terminates a process.</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li><li><a href="global.html#waitforWaitsforaprocesstoquit.">waitfor
-Waits for a process to quit.</a></li><li><a href="global.html#writeFileWritesdatatoafile,replacingthefileifitalreadyexists.">writeFile
-Writes data to a file, replacing the file if it already exists.</a></li>
+					<li><a href="global.html#AgoraLibResponse">AgoraLibResponse</a></li><li><a href="global.html#CSXSWindowType">CSXSWindowType</a></li><li><a href="global.html#EvalScript_ErrMessage">EvalScript_ErrMessage</a></li><li><a href="global.html#GetValueByKey">GetValueByKey</a></li><li><a href="global.html#requiredParamsValid">requiredParamsValid</a></li><li><a href="global.html#strStartsWith">strStartsWith</a></li><li><a href="global.html#VulcanInterface">VulcanInterface</a></li>
 				</ul>
 			</li>
 			
@@ -264,6 +242,538 @@ Writes data to a file, replacing the file if it already exists.</a></li>
         </dl>
     
 
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".openURLInDefaultBrowser"><span class="type-signature">&lt;static> </span>openURLInDefaultBrowser(url)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Opens a page in the default system browser.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL of the page/file to open, or the email address.<br>Must use HTTP/HTTPS/file/mailto.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-820">line 820</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_UNKNOWN<br>         <br>ERR_INVALID_PARAMS</li></ul></p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">&quot;http://www.adobe.com&quot;
+ &quot;https://github.com&quot;
+ &quot;file:///C:/log.txt&quot;
+ &quot;mailto:test@adobe.com&quot;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".registerExtensionUnloadCallback"><span class="type-signature">&lt;static> </span>registerExtensionUnloadCallback(callback)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Registers a callback function for extension unload. If called more than once,<br>the last callback that is successfully registered is used.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The handler function.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+	<dt class="important tag-deprecated method-doc-label method-doc-details-label">Deprecated:</dt>
+	
+    <dd>
+        <ul class="dummy">
+            <li>since version 6.0.0</li>
+        </ul>
+    </dd>
+    
+    
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-848">line 848</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of:<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS</li></ul></p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".storeProxyCredentials"><span class="type-signature">&lt;static> </span>storeProxyCredentials(username, password)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Stores the user's proxy credentials</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>username</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>proxy username</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>proxy password</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="CEPEngine_extensions.js.html">CEPEngine_extensions.js</a>,
+				 <a href="CEPEngine_extensions.js.html#sunlight-1-line-867">line 867</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An object with this property:<br>     <ul><li>&quot;err&quot;: The status of the operation, one of<br>         <br>NO_ERROR<br>         <br>ERR_INVALID_PARAMS </li><br>     </ul></p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        </dl>
     
 
     
