@@ -281,7 +281,7 @@ if (!cep.util) {
 
     /**
      * Displays the OS File Open dialog, allowing the user to select files or directories.
-     *
+     * @function
      * @param {boolean} allowMultipleSelection When true, multiple files/folders can be selected.
      * @param {boolean} chooseDirectory When true, only folders can be selected. When false, only
      *        files can be selected.
@@ -336,7 +336,7 @@ if (!cep.util) {
 
     /**
      * Displays the OS File Open dialog, allowing the user to select files or directories.
-     *
+     * @function
      * @param {boolean} allowMultipleSelection When true, multiple files/folders can be selected.
      * @param {boolean} chooseDirectory When true, only folders can be selected. When false, only
      *        files can be selected.
@@ -395,7 +395,7 @@ if (!cep.util) {
 
     /**
      * Displays the OS File Save dialog, allowing the user to type in a file name.
-     *
+     * @function
      * @param {string} title Title of the save dialog.
      * @param {string} initialPath Initial path to display in the dialog. Pass NULL or "" to
      *        display the last path chosen.
@@ -432,7 +432,7 @@ if (!cep.util) {
 
     /**
      * Reads the contents of a folder.
-     *
+     * @function
      * @param {string} path The path of the folder to read.
      *
      * @return {object} An object with these properties:
@@ -458,7 +458,7 @@ if (!cep.util) {
 
     /**
      * Creates a new folder.
-     *
+     * @function
      * @param {string} path The path of the folder to create.
      *
      * @return {object} An object with this property:
@@ -475,7 +475,7 @@ if (!cep.util) {
 
     /**
      * Renames a file or folder.
-     *
+     * @function
      * @param {string} oldPath The old name of the file or folder.
      * @param {string} newPath The new name of the file or folder.
      *
@@ -495,7 +495,7 @@ if (!cep.util) {
 
     /**
      * Reports whether an item is a file or folder.
-     *
+     * @function
      * @param {string} path The path of the file or folder.
      *
      * @return {object} An object with these properties:
@@ -533,7 +533,7 @@ if (!cep.util) {
 
     /**
      * Reads the entire contents of a file.
-     *
+     * @function
      * @param {string} path The path of the file to read.
      * @param {string} encoding The encoding of the contents of file, one of
      *      UTF8 (the default) or Base64.
@@ -562,7 +562,7 @@ if (!cep.util) {
 
     /**
      * Writes data to a file, replacing the file if it already exists.
-     *
+     * @function
      * @param {string} path The path of the file to write.
      * @param {string} data The data to write to the file.
      * @param {string} encoding  The encoding of the contents of file, one of
@@ -605,7 +605,7 @@ if (!cep.util) {
 
     /**
      * Deletes a file.
-     *
+     * @function
      * @param {string} path The path of the file to delete.
      *
      * @return {object} An object with this property:
@@ -631,7 +631,7 @@ if (!cep.util) {
 
     /**
      * Creates a process.
-     *
+     * @function
      * @param {list} arguments The arguments to create process. The first one is the full path of the executable,
      *                         followed by the arguments of the executable.
      *
@@ -659,7 +659,7 @@ if (!cep.util) {
 
     /**
      * Registers a standard-output handler for a process.
-     *
+     * @function
      * @param {number} pid The pid of the process.
      * @param {function} callback The handler function for the standard output callback.
      *
@@ -678,7 +678,7 @@ if (!cep.util) {
 
     /**
      * Registers up a standard-error handler for a process.
-     *
+     * @function
      * @param {number} pid The pid of the process.
      * @param {function} callback The handler function for the standard error callback.
      *
@@ -697,7 +697,7 @@ if (!cep.util) {
 
     /**
      * Writes data to the standard input of a process.
-     *
+     * @function
      * @param {number} pid  The pid of the process
      * @param {string} data The data to write.
      *
@@ -716,7 +716,7 @@ if (!cep.util) {
 
     /**
      * Retrieves the working directory of a process.
-     *
+     * @function
      * @param {number} pid The pid of the process.
      *
      * @return {object} An object with these properties:
@@ -739,7 +739,7 @@ if (!cep.util) {
 
     /**
      * Waits for a process to quit.
-     *
+     * @function
      * @param {number} pid The pid of the process.
      *
      * @return {object} An object with this property:
@@ -757,7 +757,7 @@ if (!cep.util) {
 
     /**
      * Registers a handler for the onquit callback of a process.
-     *
+     * @function
      * @param {number} pid  The pid of the process.
      * @param {function} callback The handler function.
      *
@@ -776,7 +776,7 @@ if (!cep.util) {
 
     /**
      * Reports whether a process is currently running.
-     *
+     * @function
      * @param {number} pid The pid of the process.
      *
      * @return {object} An object with these properties:
@@ -799,7 +799,7 @@ if (!cep.util) {
 
     /**
      * Terminates a process.
-     *
+     * @function
      * @param {number} pid The process ID
      *
      * @return {object} An object with this property:
@@ -887,7 +887,7 @@ if (!cep.util) {
 
     /**
      * Opens a page in the default system browser.
-     *
+     * @function
      * @param {string} url The URL of the page/file to open, or the email address.
      * Must use HTTP/HTTPS/file/mailto.
      *
@@ -920,7 +920,7 @@ if (!cep.util) {
     /**
      * Registers a callback function for extension unload. If called more than once,
      * the last callback that is successfully registered is used.
-     *
+     * @function
      * @deprecated since version 6.0.0
      *
      * @param {function} callback The handler function.
@@ -939,7 +939,7 @@ if (!cep.util) {
 
     /**
      * Stores the user's proxy credentials
-     *
+     * @function
      * @param {string} username proxy username
      * @param {string} password proxy password
      *
@@ -1002,7 +1002,7 @@ if (!cep.util) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Fri Feb 16th 2018
+		on Sat Feb 17th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
