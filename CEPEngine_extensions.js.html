@@ -98,36 +98,57 @@
  **************************************************************************************************/
 
 /** CEPEngine - v8.0.0 */
-/** This is the JavaScript code for bridging to native functionality (i.e. browsing desktop files and directories)
- *
- * Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD.
+// This is the JavaScript code for bridging to native functionality
+// Note: So far all native file i/o functions are synchronous, and aynchronous file i/o is TBD
+
+/**
+ * The value of the "err" property returned from CEP functions
+ * 
+ * Possible error codes and their corresponding meanings:
+ *  &lt;ul>
+ *      &lt;li>0 - NO_ERROR&lt;/li>
+ *      &lt;li>1 - ERR_UNKNOWN&lt;/li>
+ *      &lt;li>2 - ERR_INVALID_PARAMS&lt;/li>
+ *      &lt;li>3 - ERR_NOT_FOUND&lt;/li>
+ *      &lt;li>4 - ERR_CANT_READ&lt;/li>
+ *      &lt;li>5 - ERR_UNSUPPORTED_ENCODING&lt;/li>
+ *      &lt;li>6 - ERR_CANT_WRITE&lt;/li>
+ *      &lt;li>7 - ERR_OUT_OF_SPACE&lt;/li>
+ *      &lt;li>8 - ERR_NOT_FILE&lt;/li>
+ *      &lt;li>9 - ERR_NOT_DIRECTORY&lt;/li>
+ *      &lt;li>10 - ERR_FILE_EXISTS&lt;/li>
+ *      &lt;li>101 - ERR_EXCEED_MAX_NUM_PROCESS&lt;/li>
+ *      &lt;li>201 - ERR_INVALID_URL&lt;/li>
+ *      &lt;li>202 - DEPRECATED_API&lt;/li>
+ *  &lt;/ul>
+ * @typedef {number} [ErrorCode]
  */
 
 /**
- * The method used for initializing the CEP engine. Must be called on the scope (ex. window.cep.fs).
+ * Initializes the CEPEngine to utilize CEF capabilities.
  * @namespace cep
  */
 
 /**
- * Used for communicating with the native file system
+ * Communicates with the computer's native file system
  * @namespace cep.fs
  * @memberof cep
  */
 
 /**
- * Used for reading and initiating processes
+ * Reads and/or initializes processes
  * @namespace cep.process
  * @memberof cep
  */
 
 /**
- * Used for encoding and decoding files
+ * Encodes/decodes text and data to/from Base64
  * @namespace cep.encoding
  * @memberof cep
  */
 
 /**
- * Used to open links and registered API
+ * Communicates with OS browser and internet
  * @namespace cep.util
  * @memberof cep
  */
@@ -168,112 +189,112 @@ if (!cep.util) {
     // at the top of CEPEngine_extensions.cpp
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.NO_ERROR = 0;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_UNKNOWN = 1;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_INVALID_PARAMS = 2;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_FOUND = 3;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_CANT_READ = 4;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_UNSUPPORTED_ENCODING = 5;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_CANT_WRITE = 6;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_OUT_OF_SPACE = 7;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_FILE = 8;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs
      */
     cep.fs.ERR_NOT_DIRECTORY = 9;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.fs                       
      */
     cep.fs.ERR_FILE_EXISTS = 10;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.process
      */
     cep.process.ERR_EXCEED_MAX_NUM_PROCESS = 101;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.process                      
      */
     cep.util.ERR_INVALID_URL = 201;
 
     /**
-     * @constant
-     * @default
+     * @constant {ErrorCode}
+     * @readonly
      * @memberof cep.util           
      */
     cep.util.DEPRECATED_API = 202;
 
     /**
-     * @constant
+     * @constant {string}
      * @default
      * @memberof cep.encoding
      */
     cep.encoding.UTF8 = "UTF-8";
 
     /**
-     * @constant
+     * @constant {string}
      * @default
      * @memberof cep.encoding
      */
@@ -291,12 +312,15 @@ if (!cep.util) {
      * @param {string[]} fileTypes The file extensions (without the dot) for the types
      *      of files that can be selected. Ignored when chooseDirectory=true.
      *
-     * @return {object} An object with these properties:
+     * @return {(object|ErrorCode)} An object with these properties:
      *      &lt;ul>
      *          &lt;li>"data": An array of the full names of the selected files.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      * @memberof cep.fs
      *               
@@ -349,11 +373,14 @@ if (!cep.util) {
      *      of files that can be selected. Ignored when chooseDirectory=true. (win only)
      * @param {string} prompt String for OK button (mac only, default is "Open" on mac, "Open" or "Select Folder" on win).
      *                        
-     * @return {object} An object with these properties:
+     * @return {(object|ErrorCode)} An object with these properties:
      *      &lt;ul>&lt;li>"data": An array of the full names of the selected files.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      * @memberof cep.fs
      *
@@ -406,11 +433,14 @@ if (!cep.util) {
      * @param {string} prompt String for Save button (mac only, default is "Save" on mac and win).
      * @param {string} nameFieldLabel String displayed in front of the file name text field (mac only, "File name:" on win).
      *
-     * @return {object} An object with these properties:
+     * @return {(object|ErrorCode)} An object with these properties:
      *      &lt;ul>&lt;li>"data": The file path selected to save at or "" if canceled&lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      *      @memberof cep.fs
      * @example 
@@ -436,15 +466,18 @@ if (!cep.util) {
      * @function
      * @param {string} path The path of the folder to read.
      *
-     * @return {object} An object with these properties:
+     * @return {(object|ErrorCode)} An object with these properties:
      *      &lt;ul>
      *          &lt;li>"data": An array of the names of the contained files (excluding '.' and '..'.&lt;/li>
      *          &lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_NOT_FOUND
-     *          &lt;br>ERR_CANT_READ &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_NOT_FOUND&lt;/li>
+     *                  &lt;li>ERR_CANT_READ&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *          &lt;/ul>
      *          @memberof cep.fs
      **/
@@ -463,11 +496,16 @@ if (!cep.util) {
      * @function
      * @param {string} path The path of the folder to create.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
      *         @memberof cep.fs
      **/
     //     native function MakeDir();
@@ -481,13 +519,18 @@ if (!cep.util) {
      * @function
      * @param {string} oldPath The old name of the file or folder.
      * @param {string} newPath The new name of the file or folder.
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_NOT_FOUND
-     *          &lt;br>ERR_FILE_EXISTS &lt;/li>&lt;/ul>
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *          &lt;ul>
+     *              &lt;li>NO_ERROR&lt;/li>
+     *              &lt;li>ERR_UNKNOWN&lt;/li>
+     *              &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;li>ERR_NOT_FOUND&lt;/li>
+     *              &lt;li>ERR_FILE_EXISTS&lt;/li>
+     *          &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
      * @memberof cep.fs
      **/
     //     native function Rename();
@@ -500,16 +543,23 @@ if (!cep.util) {
      * Reports whether an item is a file or folder.
      * @function
      * @param {string} path The path of the file or folder.
-     * @return {object} An object with these properties:
-     *      &lt;ul>&lt;li>"data": An object with properties
-     *          &lt;br>isFile (boolean)
-     *          &lt;br>isDirectory (boolean)
-     *          &lt;br>mtime (modification DateTime) &lt;/li>
+     * @return {(object|ErrorCode)} An object with these properties:
+     *      &lt;ul>
+     *          &lt;li>"data": An object with properties
+     *              &lt;ul>
+     *                  &lt;li>isFile (boolean)&lt;/li>
+     *                  &lt;li>isDirectory (boolean)&lt;/li>
+     *                  &lt;li>mtime (modification DateTime)&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_NOT_FOUND  &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_NOT_FOUND&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      * @memberof cep.fs
      **/
@@ -541,15 +591,19 @@ if (!cep.util) {
      * @param {string} encoding The encoding of the contents of file, one of
      *      UTF8 (the default) or Base64.
      *
-     * @return {object} An object with these properties:
-     *      &lt;ul>&lt;li>"data": The file contents. &lt;/li>
+     * @return {(object|ErrorCode)} An object with these properties:
+     *      &lt;ul>
+     *          &lt;li>"data": The file contents. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_NOT_FOUND
-     *          &lt;br>ERR_CANT_READ
-     *          &lt;br>ERR_UNSUPPORTED_ENCODING &lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_NOT_FOUND&lt;/li>
+     *                  &lt;li>ERR_CANT_READ&lt;/li>
+     *                  &lt;li>ERR_UNSUPPORTED_ENCODING&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      *      @memberof cep.fs
      **/
@@ -572,14 +626,19 @@ if (!cep.util) {
      * @param {string} encoding  The encoding of the contents of file, one of
      *      UTF8 (the default) or Base64.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_UNSUPPORTED_ENCODING
-     *          &lt;br>ERR_CANT_WRITE
-     *          &lt;br>ERR_OUT_OF_SPACE &lt;/li>&lt;/ul>
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_UNSUPPORTED_ENCODING&lt;/li>
+     *                  &lt;li>ERR_CANT_WRITE&lt;/li>
+     *                  &lt;li>ERR_OUT_OF_SPACE&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
      **/
     //    native function WriteFile();
     cep.fs.writeFile = function (path, data, encoding) {
@@ -594,12 +653,17 @@ if (!cep.util) {
      * @param {string} path The path of the file or folder.
      * @param {number} mode The permissions in numeric format (for example, 0777).
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_CANT_WRITE &lt;/li>&lt;/ul>
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_CANT_WRITE&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
      *          @memberof cep
      **/
     //    native function SetPosixPermissions();
@@ -613,14 +677,17 @@ if (!cep.util) {
      * @function
      * @param {string} path The path of the file to delete.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_NOT_FOUND
-     *          &lt;br>ERR_NOT_FILE &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;li>NO_ERROR&lt;/li>
+     *              &lt;li>ERR_UNKNOWN&lt;/li>
+     *              &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;li>ERR_NOT_FOUND&lt;/li>
+     *              &lt;li>ERR_NOT_FILE&lt;/li>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function DeleteFileOrDirectory();
     //    native function IsDirectory();
@@ -638,18 +705,21 @@ if (!cep.util) {
     /**
      * Creates a process.
      * @function
-     * @param {list} arguments The arguments to create process. The first one is the full path of the executable,
-     *                         followed by the arguments of the executable.
+     * @param {list} arguments The arguments to create process. The first one is the full path of the executable, followed by the arguments of the executable.
      *
-     * @return {object} An object with these properties:
-     *      &lt;ul>&lt;li>"data": The pid of the process, or -1 on error. &lt;/li>
+     * @return {(object|ErrorCode)} An object with these properties:
+     *      &lt;ul>
+     *          &lt;li>"data": The pid of the process, or -1 on error. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_EXCEED_MAX_NUM_PROCESS
-     *          &lt;br>ERR_NOT_FOUND
-     *          &lt;br>ERR_NOT_FILE&lt;/li>
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_EXCEED_MAX_NUM_PROCESS&lt;/li>
+     *                  &lt;li>ERR_NOT_FOUND&lt;/li>
+     *                  &lt;li>ERR_NOT_FILE&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
      *      @memberof cep.process
      **/
@@ -670,13 +740,18 @@ if (!cep.util) {
      * @param {number} pid The pid of the process.
      * @param {function} callback The handler function for the standard output callback.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>    
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function SetupStdOutHandler();
     cep.process.stdout = function (pid, callback) {
@@ -690,13 +765,18 @@ if (!cep.util) {
      * @param {number} pid The pid of the process.
      * @param {function} callback The handler function for the standard error callback.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *               &lt;ul>   
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function SetupStdErrHandler();
     cep.process.stderr = function (pid, callback) {
@@ -710,13 +790,18 @@ if (!cep.util) {
      * @param {number} pid  The pid of the process
      * @param {string} data The data to write.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function WriteStdIn();
     cep.process.stdin = function (pid, data) {
@@ -729,14 +814,19 @@ if (!cep.util) {
      * @function
      * @param {number} pid The pid of the process.
      *
-     * @return {object} An object with these properties:
-     *      &lt;ul>&lt;li>"data": The path of the working directory. &lt;/li>
+     * @return {(object|ErrorCode)} An object with these properties:
+     *      &lt;ul>
+     *          &lt;li>"data": The path of the working directory. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function GetWorkingDirectory();
     cep.process.getWorkingDirectory = function (pid) {
@@ -753,13 +843,18 @@ if (!cep.util) {
      * @function
      * @param {number} pid The pid of the process.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function WaitFor();
     cep.process.waitfor = function (pid) {
@@ -773,13 +868,18 @@ if (!cep.util) {
      * @param {number} pid  The pid of the process.
      * @param {function} callback The handler function.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function OnQuit();
     cep.process.onquit = function (pid, callback) {
@@ -792,14 +892,19 @@ if (!cep.util) {
      * @function
      * @param {number} pid The pid of the process.
      *
-     * @return {object} An object with these properties:
-     *      &lt;ul>&lt;li>"data": True if the process is running, false otherwise. &lt;/li>
+     * @return {(object|ErrorCode)} An object with these properties:
+     *      &lt;ul>
+     *          &lt;li>"data": True if the process is running, false otherwise. &lt;/li>
      *          &lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *          &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function IsRunning();
     cep.process.isRunning = function (pid) {
@@ -816,13 +921,18 @@ if (!cep.util) {
      * @function
      * @param {number} pid The process ID
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS
-     *          &lt;br>ERR_INVALID_PROCESS_ID &lt;/li>&lt;/ul>
-     *          @memberof cep.process
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *                  &lt;li>ERR_INVALID_PROCESS_ID&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.process
      **/
     //    native function Terminate();
     cep.process.terminate = function (pid) {
@@ -871,8 +981,8 @@ if (!cep.util) {
 
         /**
          * Base64 to Binary conversion
-         * @param   {string} base64str [[Description]]
-         * @returns {string} [[Description]]
+         * @param   {string} base64str Base64 data to be converted
+         * @returns {string} Data in binary format
          */
 
         b64_to_binary: function (base64str) {
@@ -906,12 +1016,17 @@ if (!cep.util) {
      * @param {string} url The URL of the page/file to open, or the email address.
      * Must use HTTP/HTTPS/file/mailto.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_UNKNOWN
-     *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
-     *          @memberof cep.util
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_UNKNOWN&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.util
      * @example
      *  "http://www.adobe.com"
      *  "https://github.com"
@@ -941,11 +1056,16 @@ if (!cep.util) {
      *
      * @param {function} callback The handler function.
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of:
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_INVALID_PARAMS&lt;/li>&lt;/ul>
-     *          @memberof cep.util
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of:
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
+     *      &lt;/ul>
+     * @memberof cep.util
      **/
     //    native function RegisterExtensionUnloadCallback();
     cep.util.registerExtensionUnloadCallback = function (callback) {
@@ -960,12 +1080,16 @@ if (!cep.util) {
      * @param {string} username proxy username
      * @param {string} password proxy password
      *
-     * @return {object} An object with this property:
-     *      &lt;ul>&lt;li>"err": The status of the operation, one of
-     *          &lt;br>NO_ERROR
-     *          &lt;br>ERR_INVALID_PARAMS &lt;/li>
+     * @return {(object|ErrorCode)} An object with this property:
+     *      &lt;ul>
+     *          &lt;li>"err": The status of the operation, one of
+     *              &lt;ul>
+     *                  &lt;li>NO_ERROR&lt;/li>
+     *                  &lt;li>ERR_INVALID_PARAMS&lt;/li>
+     *              &lt;/ul>
+     *          &lt;/li>
      *      &lt;/ul>
-     *      @memberof cep.util
+     * @memberof cep.util
      **/
     //    native function StoreProxyCredentials();
     cep.util.storeProxyCredentials = function (username, password) {
@@ -1020,7 +1144,7 @@ if (!cep.util) {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on Sat Feb 17th 2018
+		on Thu Apr 12th 2018
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
